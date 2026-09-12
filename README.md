@@ -29,4 +29,7 @@ npm run lint    # oxlint
 | Portfolio items + screenshots | `src/data/site.ts` → `work`, images in `public/work/` |
 | Experience timeline, skills, slackmoji | `src/data/site.ts` |
 | Theme colours per mode | `src/index.css` (`:root` / `:root[data-mode="dev"]`) |
-| Pixel Veronika sprite + code trail | `src/components/PixelDev.tsx` |
+| Pixel Veronika sprite (pixel grid, colours) | `src/data/sprite.ts` |
+| Hero sprite + rainbow (click → game) | `src/components/PixelDev.tsx` |
+| Easter-egg game (tags to dodge, physics) | `src/components/dev/DevGame.tsx` |
+| Game chiptune + sound effects | `src/lib/gameAudio.ts` |

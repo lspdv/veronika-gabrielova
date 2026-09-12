@@ -240,6 +240,70 @@ export const translations: Dict = {
   "dev.hero.stat.emoji": { cs: "vlastních slackmoji", en: "custom slackmoji" },
   "dev.hero.available": { cs: "otevřená spolupráci", en: "open to work" },
 
+  /* ---------- dev: easter-egg game ---------- */
+  "dev.game.open": {
+    cs: "Psst… klikni na mě a zahraj si",
+    en: "Psst… click me to play",
+  },
+  "dev.game.eyebrow": { cs: "easter egg · level 1", en: "easter egg · level 1" },
+  "dev.game.eyebrow.over": { cs: "game over", en: "game over" },
+  "dev.game.title": { cs: "Vyhni se legacy HTML", en: "Dodge the legacy HTML" },
+  "dev.game.hint": {
+    cs: "Letíš na duze skrz cizí codebase a proti tobě letí tagy, které se v roce 2026 psát nemají.",
+    en: "You're riding a rainbow through someone else's codebase, and the tags nobody should be writing in 2026 are flying at you.",
+  },
+  "dev.game.how.title": { cs: "Jak na to", en: "How to play" },
+  "dev.game.how.up.touch": {
+    cs: "Ťukni kamkoli na obrazovku a vyletíš nahoru.",
+    en: "Tap anywhere on the screen to fly up.",
+  },
+  "dev.game.how.up.desktop": {
+    cs: "Zmáčkni mezerník, šipku nahoru nebo klikni a vyletíš nahoru.",
+    en: "Press Space, the up arrow, or click to fly up.",
+  },
+  "dev.game.how.hold.touch": {
+    cs: "Krátký ťuk = malý skok. Podrž prst déle = vyletíš výš. Pusť a začneš padat.",
+    en: "Quick tap = small hop. Hold your finger longer = climb higher. Let go and you start falling.",
+  },
+  "dev.game.how.hold.desktop": {
+    cs: "Krátký stisk = malý skok. Podrž klávesu déle = vyletíš výš. Pusť a začneš padat.",
+    en: "Quick press = small hop. Hold the key longer = climb higher. Let go and you start falling.",
+  },
+  "dev.game.how.avoid": {
+    cs: "Nesmíš se dotknout žádného tagu ani spadnout na zem.",
+    en: "Don't touch any tag and don't hit the ground.",
+  },
+  "dev.game.how.score": {
+    cs: "Každý minutý tag = 1 bod. Čím víc bodů, tím rychleji to letí.",
+    en: "Every tag you pass = 1 point. The more points, the faster it gets.",
+  },
+  "dev.game.controls.touch": {
+    cs: "Ťuk = nahoru · podržet = výš · ✕ = zavřít",
+    en: "Tap = up · hold = higher · ✕ = close",
+  },
+  "dev.game.controls.desktop": {
+    cs: "Mezerník / ↑ / klik = nahoru · podržet = výš · Esc = zavřít",
+    en: "Space / ↑ / click = up · hold = higher · Esc = close",
+  },
+  "dev.game.start": { cs: "Start", en: "Start" },
+  "dev.game.again": { cs: "Ještě jednou", en: "Play again" },
+  "dev.game.close": { cs: "Zavřít hru", en: "Close game" },
+  "dev.game.mute": { cs: "Ztlumit zvuk", en: "Mute sound" },
+  "dev.game.unmute": { cs: "Zapnout zvuk", en: "Unmute sound" },
+  "dev.game.score": { cs: "Skóre", en: "Score" },
+  "dev.game.now": { cs: "Teď", en: "Now" },
+  "dev.game.last": { cs: "Minule", en: "Last time" },
+  "dev.game.best": { cs: "Rekord", en: "Best" },
+  "dev.game.newBest": { cs: "Nový rekord!", en: "New high score!" },
+  "dev.game.over.tag": {
+    cs: "Bum. Dostal tě {tag}.",
+    en: "Boom. {tag} got you.",
+  },
+  "dev.game.over.floor": {
+    cs: "Bum. Přistání přímo do produkční databáze.",
+    en: "Boom. Landed straight in the production database.",
+  },
+
   /* ---------- dev: experience ---------- */
   "exp.eyebrow": { cs: "git log --oneline", en: "git log --oneline" },
   "exp.title": { cs: "Zkušenosti ze SaaS.", en: "SaaS track record." },

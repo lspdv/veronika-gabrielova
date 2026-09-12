@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { PixelDev } from "@/components/PixelDev";
 import { Reveal } from "@/components/Reveal";
+import { DevGame } from "@/components/dev/DevGame";
 import { site } from "@/data/site";
 import { useI18n } from "@/hooks/useI18n";
 import { mailto, yearsSince } from "@/lib/utils";
@@ -32,16 +33,19 @@ function useTyped(text: string, speed = 28) {
 export function DevHero() {
   const { t } = useI18n();
   const typed = useTyped(t("dev.hero.role"));
+  const [gameOpen, setGameOpen] = useState(false);
+  const openGame = () => setGameOpen(true);
 
   return (
     <section id="top" className="relative overflow-hidden pb-16 pt-10 sm:pb-24 sm:pt-16">
       <div className="container-x">
         <Reveal>
-          <div className="mb-8 -ml-5 sm:ml-0">
-            <PixelDev scale={4} className="sm:hidden" />
-            <PixelDev scale={6} className="hidden sm:flex" />
+          <div className="mb-8 -ml-5 py-4 sm:ml-0 sm:py-6">
+            <PixelDev scale={4} className="sm:hidden" onClick={openGame} />
+            <PixelDev scale={6} className="hidden sm:flex" onClick={openGame} />
           </div>
         </Reveal>
+        {gameOpen && <DevGame onClose={() => setGameOpen(false)} />}
 
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
