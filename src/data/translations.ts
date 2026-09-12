@@ -10,9 +10,10 @@ type Dict = Record<string, Record<Language, string>>;
  */
 export const translations: Dict = {
   /* ---------- meta ---------- */
+  "brand.studio": { cs: "prostě Veronika", en: "just Veronika" },
   "meta.title.studio": {
-    cs: "Veronika — weby, portfolia, záchrana CMS",
-    en: "Veronika — websites, portfolios, CMS rescue",
+    cs: "prostě Veronika — weby, portfolia, záchrana CMS",
+    en: "just Veronika — websites, portfolios, CMS rescue",
   },
   "meta.title.dev": {
     cs: "Veronika Gabrielová — frontend / product developer",

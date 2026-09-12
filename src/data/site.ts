@@ -5,8 +5,6 @@
 
 export const site = {
   name: "Veronika Gabrielová",
-  /** Short brand shown on the studio (business) face of the site */
-  brand: "Veronika",
   linkedin: "https://www.linkedin.com/in/veronika-gabrielova/",
   github: "https://github.com/lspdv",
   location: "Praha / remote",

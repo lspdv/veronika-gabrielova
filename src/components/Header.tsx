@@ -63,7 +63,7 @@ export function Header() {
               <span className="text-accent">$</span>
             </span>
           ) : (
-            <span>Veronika</span>
+            <span>{t("brand.studio")}</span>
           )}
         </a>
 

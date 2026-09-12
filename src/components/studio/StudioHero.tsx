@@ -89,7 +89,7 @@ export function StudioHero() {
             </div>
             <div className="mt-6 border-t border-line pt-5">
               <div className="text-sm">
-                <p className="font-semibold">{site.brand}</p>
+                <p className="font-semibold">{t("brand.studio")}</p>
                 <p className="text-muted">{site.location}</p>
               </div>
             </div>
