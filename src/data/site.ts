@@ -10,6 +10,9 @@ export const site = {
   github: "https://github.com/lspdv",
   location: "Praha / remote",
 
+  /** First frontend job (MSD, Jan 2017). Years of experience are derived from this every Jan 1. */
+  careerStartYear: 2017,
+
   /** Hourly rate in CZK, excl. VAT. TODO: confirm the number. */
   hourlyRateCzk: 1200,
   vatRatePct: 21,

@@ -10,6 +10,11 @@ export function formatCzk(n: number) {
   return new Intl.NumberFormat("cs-CZ", { maximumFractionDigits: 0 }).format(n);
 }
 
+/** Whole years since a given year — rolls over every Jan 1. */
+export function yearsSince(year: number) {
+  return Math.max(1, new Date().getFullYear() - year);
+}
+
 export function mailto(email: string, subject?: string) {
   const q = subject ? `?subject=${encodeURIComponent(subject)}` : "";
   return `mailto:${email}${q}`;

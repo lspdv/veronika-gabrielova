@@ -3,10 +3,11 @@ import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
 import { useI18n } from "@/hooks/useI18n";
-import { mailto } from "@/lib/utils";
+import { mailto, yearsSince } from "@/lib/utils";
 
 export function StudioHero() {
   const { t } = useI18n();
+  const years = yearsSince(site.careerStartYear);
 
   return (
     <section id="top" className="relative overflow-hidden pb-16 pt-14 sm:pb-24 sm:pt-24">
@@ -27,7 +28,7 @@ export function StudioHero() {
           </Reveal>
           <Reveal delay={120}>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              {t("studio.hero.lead")}
+              {t("studio.hero.lead", { years })}
             </p>
           </Reveal>
           <Reveal delay={180} className="mt-9 flex flex-wrap items-center gap-3">
@@ -47,7 +48,7 @@ export function StudioHero() {
             </a>
           </Reveal>
           <Reveal delay={240} className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-            <span>{t("studio.hero.fact.years")}</span>
+            <span>{t("studio.hero.fact.years", { years })}</span>
             <span aria-hidden="true">·</span>
             <span>{t("studio.hero.fact.saas")}</span>
             <span aria-hidden="true">·</span>

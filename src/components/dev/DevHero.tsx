@@ -5,13 +5,13 @@ import { PixelDev } from "@/components/PixelDev";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
 import { useI18n } from "@/hooks/useI18n";
-import { mailto } from "@/lib/utils";
+import { mailto, yearsSince } from "@/lib/utils";
 
 const STATS = [
-  { value: "8+", key: "dev.hero.stat.years" },
-  { value: "3", key: "dev.hero.stat.products" },
-  { value: "30+", key: "dev.hero.stat.mentees" },
-  { value: "200+", key: "dev.hero.stat.emoji" },
+  { value: () => `${yearsSince(site.careerStartYear)}+`, key: "dev.hero.stat.years" },
+  { value: () => "3", key: "dev.hero.stat.products" },
+  { value: () => "30+", key: "dev.hero.stat.mentees" },
+  { value: () => "200+", key: "dev.hero.stat.emoji" },
 ];
 
 function useTyped(text: string, speed = 28) {
@@ -61,7 +61,7 @@ export function DevHero() {
             </Reveal>
             <Reveal delay={180}>
               <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted sm:text-base">
-                {t("dev.hero.lead")}
+                {t("dev.hero.lead", { years: yearsSince(site.careerStartYear) })}
               </p>
             </Reveal>
             <Reveal delay={240} className="mt-8 flex flex-wrap items-center gap-3">
@@ -95,7 +95,7 @@ export function DevHero() {
             <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-theme border border-line bg-line">
               {STATS.map((s) => (
                 <div key={s.key} className="bg-card p-5">
-                  <dd className="font-pixel text-xl leading-none text-accent sm:text-2xl">{s.value}</dd>
+                  <dd className="font-pixel text-xl leading-none text-accent sm:text-2xl">{s.value()}</dd>
                   <dt className="mt-3 font-mono text-xs text-muted">{t(s.key)}</dt>
                 </div>
               ))}
