@@ -2,11 +2,13 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
+import { useContactSheet } from "@/hooks/useContactSheet";
 import { useI18n } from "@/hooks/useI18n";
-import { mailto, yearsSince } from "@/lib/utils";
+import { yearsSince } from "@/lib/utils";
 
 export function StudioHero() {
   const { t } = useI18n();
+  const { openSheet } = useContactSheet();
   const years = yearsSince(site.careerStartYear);
 
   return (
@@ -20,10 +22,11 @@ export function StudioHero() {
             </p>
           </Reveal>
           <Reveal delay={60}>
-            <h1 className="font-display text-balance text-[2.6rem] font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
-              {t("studio.hero.title.1")}
-              <br />
-              <span className="italic font-light text-accent2">{t("studio.hero.title.2")}</span>
+            <h1 className="font-display max-w-[14ch] text-[2.55rem] font-semibold leading-[1.05] tracking-[-0.02em] sm:max-w-none sm:text-6xl md:text-7xl">
+              <span className="block text-pretty">{t("studio.hero.title.1")}</span>
+              <span className="mt-4 block pl-10 text-[0.78em] font-light italic leading-[1.15] tracking-[-0.01em] text-accent2 sm:mt-5 sm:pl-16 md:pl-24 lg:pl-28">
+                {t("studio.hero.title.2")}
+              </span>
             </h1>
           </Reveal>
           <Reveal delay={120}>
@@ -32,13 +35,14 @@ export function StudioHero() {
             </p>
           </Reveal>
           <Reveal delay={180} className="mt-9 flex flex-wrap items-center gap-3">
-            <a
-              href={mailto(site.email, t("contact.subject.studio"))}
+            <button
+              type="button"
+              onClick={openSheet}
               className="inline-flex h-12 items-center gap-2 rounded-full bg-fg px-6 text-sm font-semibold text-bg transition-colors hover:bg-accent hover:text-accent-fg"
             >
               {t("studio.hero.cta.primary")}
               <ArrowUpRight size={16} />
-            </a>
+            </button>
             <a
               href="#work"
               className="inline-flex h-12 items-center gap-2 rounded-full border border-line bg-card/60 px-6 text-sm font-medium transition-colors hover:border-fg"
@@ -85,7 +89,7 @@ export function StudioHero() {
             </div>
             <div className="mt-6 border-t border-line pt-5">
               <div className="text-sm">
-                <p className="font-semibold">{site.name}</p>
+                <p className="font-semibold">{site.brand}</p>
                 <p className="text-muted">{site.location}</p>
               </div>
             </div>

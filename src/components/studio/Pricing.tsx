@@ -3,11 +3,13 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { site } from "@/data/site";
+import { useContactSheet } from "@/hooks/useContactSheet";
 import { useI18n } from "@/hooks/useI18n";
-import { formatCzk, mailto } from "@/lib/utils";
+import { formatCzk } from "@/lib/utils";
 
 export function Pricing() {
   const { t } = useI18n();
+  const { openSheet } = useContactSheet();
   const rate = site.hourlyRateCzk;
   const vat = site.vatRatePct;
   const rateWithVat = Math.round(rate * (1 + vat / 100));
@@ -35,15 +37,14 @@ export function Pricing() {
             </p>
           </div>
           <div className="mt-10 border-t border-bg/20 pt-6">
-            <h3 className="font-display text-xl font-semibold">{t("pricing.fixed.title")}</h3>
-            <p className="mt-2 text-[15px] leading-relaxed opacity-80">{t("pricing.fixed.desc")}</p>
-            <a
-              href={mailto(site.email, t("contact.subject.studio"))}
-              className="mt-6 inline-flex h-11 items-center gap-2 rounded-full bg-accent px-5 text-sm font-semibold text-accent-fg transition-opacity hover:opacity-90"
+            <button
+              type="button"
+              onClick={openSheet}
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-accent px-5 text-sm font-semibold text-accent-fg transition-opacity hover:opacity-90"
             >
               {t("pricing.cta")}
               <ArrowUpRight size={16} />
-            </a>
+            </button>
           </div>
         </Reveal>
 
@@ -71,14 +72,6 @@ export function Pricing() {
               <dd className="font-mono">{b.ico}</dd>
               <dt className="text-muted">{t("pricing.invoice.dic")}</dt>
               <dd className="font-mono">{b.dic}</dd>
-              <dt className="text-muted">{t("pricing.invoice.address")}</dt>
-              <dd>
-                {b.legalName}
-                <br />
-                {b.street}, {b.district}
-                <br />
-                {b.city}
-              </dd>
             </dl>
             <a
               href={`https://ares.gov.cz/ekonomicke-subjekty?ico=${b.ico}`}

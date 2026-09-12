@@ -14,8 +14,3 @@ export function formatCzk(n: number) {
 export function yearsSince(year: number) {
   return Math.max(1, new Date().getFullYear() - year);
 }
-
-export function mailto(email: string, subject?: string) {
-  const q = subject ? `?subject=${encodeURIComponent(subject)}` : "";
-  return `mailto:${email}${q}`;
-}

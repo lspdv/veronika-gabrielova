@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 
 import { Contact } from "@/components/Contact";
+import { ContactSheet } from "@/components/ContactSheet";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ModeLoader } from "@/components/ModeLoader";
 import { Culture } from "@/components/dev/Culture";
 import { DevHero } from "@/components/dev/DevHero";
 import { Experience } from "@/components/dev/Experience";
@@ -17,7 +19,7 @@ import { useI18n } from "@/hooks/useI18n";
 import { useMode } from "@/hooks/useMode";
 
 export default function App() {
-  const { isDev, switchCount } = useMode();
+  const { isDev } = useMode();
   const { t } = useI18n();
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export default function App() {
 
   return (
     <>
-      {switchCount > 0 && <div key={switchCount} className="mode-flash" aria-hidden="true" />}
+      <ModeLoader />
       {/* keyed by mode so the mobile menu resets on switch */}
       <Header key={isDev ? "dev" : "studio"} />
       <main>
@@ -51,6 +53,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <ContactSheet />
     </>
   );
 }

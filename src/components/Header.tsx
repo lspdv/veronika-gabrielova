@@ -63,10 +63,7 @@ export function Header() {
               <span className="text-accent">$</span>
             </span>
           ) : (
-            <span>
-              Veronika <span className="hidden italic font-light sm:inline">Gabrielová</span>
-              <span className="italic font-light sm:hidden">G.</span>
-            </span>
+            <span>Veronika</span>
           )}
         </a>
 

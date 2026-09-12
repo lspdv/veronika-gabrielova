@@ -11,8 +11,8 @@ type Dict = Record<string, Record<Language, string>>;
 export const translations: Dict = {
   /* ---------- meta ---------- */
   "meta.title.studio": {
-    cs: "Veronika Gabrielová — weby, portfolia, záchrana CMS",
-    en: "Veronika Gabrielová — websites, portfolios, CMS rescue",
+    cs: "Veronika — weby, portfolia, záchrana CMS",
+    en: "Veronika — websites, portfolios, CMS rescue",
   },
   "meta.title.dev": {
     cs: "Veronika Gabrielová — frontend / product developer",
@@ -44,6 +44,23 @@ export const translations: Dict = {
     cs: "Pro lidi a značky: weby, portfolia, záchrana CMS.",
     en: "For people & brands: websites, portfolios, CMS rescue.",
   },
+  "dev.loading.eyebrow": { cs: "SYSTEM BOOT · v0.9", en: "SYSTEM BOOT · v0.9" },
+  "dev.loading.title": { cs: "NAČÍTÁM DEV MÓD", en: "LOADING DEV MODE" },
+  "dev.loading.progress": { cs: "PRŮBĚH", en: "PROGRESS" },
+  "dev.loading.hint": {
+    cs: "STISKNI ESC… ehm, vlastně nic. Jen čekej.",
+    en: "PRESS ESC… actually never mind. Just wait.",
+  },
+  "dev.loading.step.1": { cs: "Inicializace terminálu", en: "Init terminal" },
+  "dev.loading.step.2": { cs: "Mount /saas/experience", en: "Mount /saas/experience" },
+  "dev.loading.step.3": { cs: "Načítám stack a slackmoji", en: "Loading stack & slackmoji" },
+  "dev.loading.step.4": { cs: "Zapínám neon a hvězdy", en: "Enabling neon & stars" },
+  "studio.loading.eyebrow": { cs: "Přepínám", en: "Switching" },
+  "studio.loading.title": { cs: "Zpátky do studia.", en: "Back to the studio." },
+  "studio.loading.step.1": { cs: "Ukládám konzoli…", en: "Putting the console away…" },
+  "studio.loading.step.2": { cs: "Vracím teplé barvy…", en: "Restoring warm colours…" },
+  "studio.loading.step.3": { cs: "Připravuji portfolio…", en: "Preparing the portfolio…" },
+  "studio.loading.step.4": { cs: "Hotovo.", en: "Ready." },
 
   /* ---------- studio: hero ---------- */
   "studio.hero.eyebrow": {
@@ -51,7 +68,7 @@ export const translations: Dict = {
     en: "Developer · Prague / remote",
   },
   "studio.hero.title.1": { cs: "Weby, které vypadají jako vy.", en: "Websites that look like you." },
-  "studio.hero.title.2": { cs: "A fungují.", en: "And actually work." },
+  "studio.hero.title.2": { cs: "— a fungují.", en: "— and they work." },
   "studio.hero.lead": {
     cs: "Jsem Veronika. Přes {years} let stavím rozhraní pro SaaS firmy — a stejnou péči dávám webům pro lidi, kteří chtějí mít online něco, za co se nemusí stydět. Nový web, portfolio, záchrana rozbitého CMS nebo převod vašeho Lovable prototypu do reality.",
     en: "I'm Veronika. I've spent {years}-plus years building interfaces for SaaS companies — and I bring the same care to websites for people who want something online they're proud of. A new site, a portfolio, a rescue of a broken CMS, or turning your Lovable prototype into the real thing.",
@@ -95,7 +112,7 @@ export const translations: Dict = {
   "services.new.from": { cs: "Nápad v hlavě", en: "An idea in your head" },
   "services.new.to": { cs: "web, který žije", en: "a website that's live" },
   "services.cms.from": { cs: "CMS, které vás štve", en: "A CMS that fights you" },
-  "services.cms.to": { cs: "web, který posloucháte vy", en: "a site that listens to you" },
+  "services.cms.to": { cs: "web, se kterým si víte rady", en: "a site you can actually run" },
   "services.lovable.from": { cs: "Prototyp v Lovable", en: "A Lovable prototype" },
   "services.lovable.to": { cs: "produkt s doménou", en: "a product with a domain" },
   "services.care.from": { cs: "Jednorázová oprava", en: "A one-off fix" },
@@ -163,10 +180,10 @@ export const translations: Dict = {
 
   /* ---------- pricing ---------- */
   "pricing.eyebrow": { cs: "Cena", en: "Pricing" },
-  "pricing.title": { cs: "Transparentně. Po hodinách, nebo fixně.", en: "Transparent. Hourly, or fixed." },
+  "pricing.title": { cs: "Transparentně. Po hodinách.", en: "Transparent. Billed hourly." },
   "pricing.lead": {
-    cs: "Menší weby nabízím za fixní cenu po úvodní schůzce. Úpravy, konzultace a dlouhodobou spolupráci účtuji hodinovou sazbou.",
-    en: "Smaller sites come at a fixed price after the intro call. Tweaks, consulting and long-term work are billed hourly.",
+    cs: "Úpravy, weby, konzultace i dlouhodobou spolupráci účtuji hodinovou sazbou. Po úvodní schůzce vám řeknu odhad rozsahu.",
+    en: "Tweaks, websites, consulting and long-term work are billed hourly. After the intro call I'll give you a scope estimate.",
   },
   "pricing.rate.label": { cs: "Hodinová sazba", en: "Hourly rate" },
   "pricing.rate.value": { cs: "{rate} Kč", en: "CZK {rate}" },
@@ -187,13 +204,7 @@ export const translations: Dict = {
   },
   "pricing.invoice.ico": { cs: "IČO", en: "Company ID (IČO)" },
   "pricing.invoice.dic": { cs: "DIČ", en: "VAT ID (DIČ)" },
-  "pricing.invoice.address": { cs: "Sídlo", en: "Registered address" },
   "pricing.invoice.registry": { cs: "Ověřit v ARES", en: "Verify in ARES" },
-  "pricing.fixed.title": { cs: "Fixní cena za web", en: "Fixed price per site" },
-  "pricing.fixed.desc": {
-    cs: "Jednostránkový web nebo portfolio typicky v rozmezí 25–60 hodin práce. Přesnou cenu dostanete písemně po úvodní schůzce — a platí.",
-    en: "A one-page site or portfolio typically lands between 25–60 hours of work. You get the exact price in writing after the intro call — and it holds.",
-  },
   "pricing.cta": { cs: "Chci nezávaznou nabídku", en: "Get a no-strings quote" },
 
   /* ---------- contact ---------- */
@@ -203,13 +214,28 @@ export const translations: Dict = {
     cs: "Odpovídám do dvou pracovních dnů. Klidně jen v bodech — zbytek doladíme na hovoru.",
     en: "I reply within two working days. Bullet points are fine — we'll sort the rest on a call.",
   },
-  "contact.email": { cs: "E-mail", en: "Email" },
+  "contact.cta": { cs: "Napište mi", en: "Get in touch" },
   "contact.linkedin": { cs: "LinkedIn", en: "LinkedIn" },
   "contact.github": { cs: "GitHub", en: "GitHub" },
-  "contact.copy": { cs: "Kopírovat", en: "Copy" },
-  "contact.copied": { cs: "Zkopírováno", en: "Copied" },
-  "contact.subject.studio": { cs: "Web — poptávka", en: "Website enquiry" },
-  "contact.subject.dev": { cs: "Spolupráce — frontend", en: "Frontend collaboration" },
+
+  /* ---------- contact form sheet ---------- */
+  "form.eyebrow": { cs: "Zpráva", en: "Message" },
+  "form.title": { cs: "Napište mi", en: "Get in touch" },
+  "form.name": { cs: "Jméno", en: "Name" },
+  "form.email": { cs: "Váš e-mail", en: "Your email" },
+  "form.message": { cs: "Zpráva", en: "Message" },
+  "form.submit": { cs: "Odeslat", en: "Send" },
+  "form.sending": { cs: "Odesílám…", en: "Sending…" },
+  "form.close": { cs: "Zavřít", en: "Close" },
+  "form.error": {
+    cs: "Nepodařilo se odeslat. Zkuste to prosím znovu.",
+    en: "Couldn't send. Please try again.",
+  },
+  "form.success.title": { cs: "Díky, mám to.", en: "Thanks — got it." },
+  "form.success.lead": {
+    cs: "Ozvu se do dvou pracovních dnů.",
+    en: "I'll get back to you within two working days.",
+  },
 
   /* ---------- footer ---------- */
   "footer.made": { cs: "Ručně kódováno v Praze.", en: "Hand-coded in Prague." },
@@ -336,18 +362,36 @@ export const translations: Dict = {
     cs: "Krátká, ale intenzivní zastávka: Next.js, GraphQL, Flow a frontend, který denně vidí miliony lidí.",
     en: "Short but intense: Next.js, GraphQL, Flow and a frontend seen by millions every day.",
   },
-  "exp.msd.role": { cs: "Front-end Developer · Lead coach JS academy", en: "Front-end Developer · Lead coach JS academy" },
+  "exp.msd.role": { cs: "Front-end Developer", en: "Front-end Developer" },
   "exp.msd.desc": {
-    cs: "Firemní intranet v Reactu a TypeScriptu. Zároveň jsem vedla a organizovala interní JavaScript code academy — tam jsem zjistila, že učit lidi je moje superschopnost.",
-    en: "Company-wide intranet in React and TypeScript. I also led and organized the internal JavaScript code academy — where I found out teaching people is my superpower.",
+    cs: "Firemní intranet v Reactu a TypeScriptu — první full-time frontend role a skok z nemocnice do IT.",
+    en: "Company-wide intranet in React and TypeScript — first full-time frontend role and the leap from nursing into IT.",
   },
-  "exp.reactgirls.role": { cs: "Mentorka", en: "Mentor" },
-  "exp.reactgirls.desc": {
+
+  /* ---------- volunteering ---------- */
+  "vol.eyebrow": { cs: "git log --grep=volunteer", en: "git log --grep=volunteer" },
+  "vol.title": { cs: "Dobrovolnictví & mentoring.", en: "Volunteering & mentoring." },
+  "vol.lead": {
+    cs: "Učím lidi kódovat od roku 2016 — ženy vstupující do techu, kolegy v MSD i děti ve Scratchi. Komunita je můj způsob, jak dělat tech.",
+    en: "I've been teaching people to code since 2016 — women entering tech, colleagues at MSD, and kids in Scratch. Community is my way of doing tech.",
+  },
+  "vol.reactgirls.role": { cs: "Mentorka", en: "Mentor" },
+  "vol.reactgirls.desc": {
     cs: "6+ týdenní mentoringy pro ženy vstupující do techu: React, TypeScript, DX, procesy, týmová práce a kariérní směr.",
     en: "6+ week mentorships for women entering tech: React, TypeScript, DX, processes, teamwork and career direction.",
   },
-  "exp.pyladies.role": { cs: "Mentorka & organizátorka", en: "Mentor & organizer" },
-  "exp.pyladies.desc": {
+  "vol.jsAcademy.role": { cs: "Lead coach & organizátorka JS Academy", en: "Lead coach & organizer, JS Academy" },
+  "vol.jsAcademy.desc": {
+    cs: "Vedla a organizovala interní JavaScript code academy v MSD IT — kurikulum, koučování kolegů a celý běh kurzu. Tam jsem zjistila, že učit lidi je moje superschopnost.",
+    en: "Led and organized the internal JavaScript code academy at MSD IT — curriculum, coaching colleagues and running the whole course. This is where I found out teaching people is my superpower.",
+  },
+  "vol.scratch.role": { cs: "Lektorka — kódování pro děti", en: "Instructor — coding for kids" },
+  "vol.scratch.desc": {
+    cs: "Učila jsem děti programovat ve Scratchi v rámci MSD — první smyčky, podmínky a kreativita místo strachu z „kódu“.",
+    en: "Taught kids to code in Scratch at MSD — first loops, conditionals and creativity instead of fear of “code”.",
+  },
+  "vol.pyladies.role": { cs: "Mentorka & organizátorka", en: "Mentor & organizer" },
+  "vol.pyladies.desc": {
     cs: "Komunita, která učí ženy programovat v Pythonu. Mentorovala jsem na kurzech a pomáhala organizovat srazy a workshopy — tady jsem zjistila, že komunita je můj způsob, jak dělat tech.",
     en: "A community teaching women to code in Python. I mentored on courses and helped organize meetups and workshops — this is where I learned that community is my way of doing tech.",
   },
@@ -395,8 +439,8 @@ export const translations: Dict = {
   },
   "soft.mentor.name": { cs: "Mentoring & onboarding", en: "Mentoring & onboarding" },
   "soft.mentor.desc": {
-    cs: "Nováček má první PR v produkci do týdne a ví, koho se zeptat. ReactGirls, PyLadies, MSD academy.",
-    en: "New hires ship their first PR within a week and know who to ask. ReactGirls, PyLadies, MSD academy.",
+    cs: "Nováček má první PR v produkci do týdne a ví, koho se zeptat. ReactGirls, PyLadies, JS Academy i Scratch v MSD.",
+    en: "New hires ship their first PR within a week and know who to ask. ReactGirls, PyLadies, JS Academy and Scratch at MSD.",
   },
   "soft.product.name": { cs: "Product thinking", en: "Product thinking" },
   "soft.product.desc": {
@@ -438,8 +482,8 @@ export const translations: Dict = {
   },
   "culture.point.3.title": { cs: "Komunita & mentoring", en: "Community & mentoring" },
   "culture.point.3.desc": {
-    cs: "PyLadies, ReactGirls, JS academy v MSD. Učím lidi kódovat od roku 2016 a nepřestala jsem.",
-    en: "PyLadies, ReactGirls, JS academy at MSD. I've been teaching people to code since 2016 and haven't stopped.",
+    cs: "PyLadies, ReactGirls, JS Academy a Scratch v MSD. Učím lidi kódovat od roku 2016 a nepřestala jsem.",
+    en: "PyLadies, ReactGirls, JS Academy and Scratch at MSD. I've been teaching people to code since 2016 and haven't stopped.",
   },
   "culture.point.4.title": { cs: "Expati & výlety", en: "Expats & field trips" },
   "culture.point.4.desc": {
@@ -469,7 +513,7 @@ export const translations: Dict = {
   },
   "hire.rate": { cs: "Sazba: {rate} Kč / hod bez DPH", en: "Rate: CZK {rate} / hour excl. VAT" },
   "hire.rate.note": { cs: "Dlouhodobé kontrakty individuálně.", en: "Long-term contracts priced individually." },
-  "hire.cta": { cs: "Napsat e-mail", en: "Send an email" },
+  "hire.cta": { cs: "Napište mi", en: "Get in touch" },
 
   /* ---------- misc ---------- */
   "misc.new": { cs: "Nové", en: "New" },

@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -11,13 +12,17 @@ import {
 export type Mode = "studio" | "dev";
 
 const STORAGE_KEY = "vg.mode";
+const TRANSITION_MS = 2400;
+const APPLY_AT_MS = 1100;
 
 type ModeContextValue = {
   mode: Mode;
   isDev: boolean;
   setMode: (mode: Mode) => void;
   toggle: () => void;
-  /** increments on every switch — used to re-trigger the flash overlay */
+  /** target mode while the loading overlay is up; null when idle */
+  transitioningTo: Mode | null;
+  /** increments on every switch — remounts the overlay */
   switchCount: number;
 };
 
@@ -36,21 +41,60 @@ function detectMode(): Mode {
   return "studio";
 }
 
+function preferReducedMotion() {
+  return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 export function ModeProvider({ children }: { children: ReactNode }) {
   const [mode, setModeState] = useState<Mode>(detectMode);
   const [switchCount, setSwitchCount] = useState(0);
+  const [transitioningTo, setTransitioningTo] = useState<Mode | null>(null);
+  const timers = useRef<number[]>([]);
 
-  const setMode = useCallback((next: Mode) => {
-    setModeState((prev) => {
-      if (prev !== next) setSwitchCount((c) => c + 1);
-      return next;
-    });
+  const clearTimers = useCallback(() => {
+    timers.current.forEach((id) => window.clearTimeout(id));
+    timers.current = [];
+  }, []);
+
+  useEffect(() => () => clearTimers(), [clearTimers]);
+
+  const applyMode = useCallback((next: Mode) => {
+    setModeState(next);
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
       /* private mode */
     }
   }, []);
+
+  const setMode = useCallback(
+    (next: Mode) => {
+      if (next === mode || transitioningTo) return;
+
+      if (preferReducedMotion()) {
+        applyMode(next);
+        setSwitchCount((c) => c + 1);
+        return;
+      }
+
+      clearTimers();
+      setTransitioningTo(next);
+      setSwitchCount((c) => c + 1);
+
+      timers.current.push(
+        window.setTimeout(() => {
+          applyMode(next);
+        }, APPLY_AT_MS),
+      );
+      timers.current.push(
+        window.setTimeout(() => {
+          setTransitioningTo(null);
+          timers.current = [];
+        }, TRANSITION_MS),
+      );
+    },
+    [mode, transitioningTo, applyMode, clearTimers],
+  );
 
   const toggle = useCallback(() => {
     setMode(mode === "dev" ? "studio" : "dev");
@@ -67,8 +111,8 @@ export function ModeProvider({ children }: { children: ReactNode }) {
   }, [mode]);
 
   const value = useMemo(
-    () => ({ mode, isDev: mode === "dev", setMode, toggle, switchCount }),
-    [mode, setMode, toggle, switchCount],
+    () => ({ mode, isDev: mode === "dev", setMode, toggle, transitioningTo, switchCount }),
+    [mode, setMode, toggle, transitioningTo, switchCount],
   );
 
   return <ModeContext.Provider value={value}>{children}</ModeContext.Provider>;

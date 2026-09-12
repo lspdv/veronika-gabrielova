@@ -5,8 +5,9 @@ import { PixelDev } from "@/components/PixelDev";
 import { Reveal } from "@/components/Reveal";
 import { DevGame } from "@/components/dev/DevGame";
 import { site } from "@/data/site";
+import { useContactSheet } from "@/hooks/useContactSheet";
 import { useI18n } from "@/hooks/useI18n";
-import { mailto, yearsSince } from "@/lib/utils";
+import { yearsSince } from "@/lib/utils";
 
 const STATS = [
   { value: () => `${yearsSince(site.careerStartYear)}+`, key: "dev.hero.stat.years" },
@@ -32,6 +33,7 @@ function useTyped(text: string, speed = 28) {
 
 export function DevHero() {
   const { t } = useI18n();
+  const { openSheet } = useContactSheet();
   const typed = useTyped(t("dev.hero.role"));
   const [gameOpen, setGameOpen] = useState(false);
   const openGame = () => setGameOpen(true);
@@ -69,13 +71,14 @@ export function DevHero() {
               </p>
             </Reveal>
             <Reveal delay={240} className="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href={mailto(site.email, t("contact.subject.dev"))}
+              <button
+                type="button"
+                onClick={openSheet}
                 className="rainbow-border inline-flex h-11 items-center gap-2 rounded-theme bg-card px-5 font-mono text-sm font-semibold transition-colors hover:bg-accent hover:text-accent-fg"
               >
                 {t("dev.hero.cta.primary")}
                 <ArrowUpRight size={16} />
-              </a>
+              </button>
               <a
                 href={site.linkedin}
                 target="_blank"

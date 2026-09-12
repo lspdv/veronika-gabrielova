@@ -14,8 +14,8 @@
     --accent-fg: #f7f3ec;
     --accent-2: #c9603f;
     --radius: 1.25rem;
-    --font-display: "Fraunces", "Georgia", serif;
-    --font-sans: "Inter", system-ui, sans-serif;
+    --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-sans: "Figtree", "Segoe UI", system-ui, sans-serif;
     --selection: #f3d6c8;
     color-scheme: light;
   }
@@ -348,20 +348,103 @@
   color: var(--accent);
 }
 
-/* --- Mode flash --- */
-@keyframes mode-flash {
-  0% {
+/* --- Mode loaders --- */
+.mode-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: mode-loader-in 0.28s ease-out both;
+}
+.mode-loader-leave {
+  animation: mode-loader-out 0.35s ease-in forwards;
+  pointer-events: none;
+}
+@keyframes mode-loader-in {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
-  100% {
+}
+@keyframes mode-loader-out {
+  from {
+    opacity: 1;
+  }
+  to {
     opacity: 0;
   }
 }
-.mode-flash {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
+.mode-loader-dev {
+  --bg: #0b1d3a;
+  --fg: #eef3ff;
+  --muted: #9fb0d0;
+  --line: #23375f;
+  --accent: #ff66c4;
+  --accent-2: #4dd2ff;
+  background: #0b1d3a;
+  color: #eef3ff;
+  image-rendering: pixelated;
+}
+.mode-loader-scan {
   pointer-events: none;
-  background: linear-gradient(90deg, #ff3b3b, #ff9d1c, #ffe63b, #4ff05a, #3ba1ff, #a765ff);
-  animation: mode-flash 0.6s ease-out forwards;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.18) 2px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  animation: mode-loader-scan 6s linear infinite;
+}
+@keyframes mode-loader-scan {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 40px;
+  }
+}
+.mode-loader-blink {
+  animation: blink 0.8s steps(1) infinite;
+}
+.mode-loader-studio {
+  --bg: #f7f3ec;
+  --fg: #1b1f1d;
+  --muted: #66706a;
+  --line: #e0dbd1;
+  --accent: #2e6b5a;
+  --accent-2: #c9603f;
+  --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-sans: "Figtree", "Segoe UI", system-ui, sans-serif;
+  background:
+    radial-gradient(70% 50% at 50% 0%, rgba(46, 107, 90, 0.14) 0%, transparent 70%),
+    #f7f3ec;
+  color: #1b1f1d;
+  font-family: var(--font-sans);
+}
+.mode-loader-ring {
+  position: relative;
+}
+.mode-loader-ring svg {
+  transform: rotate(-90deg);
+}
+.mode-loader-ring-track,
+.mode-loader-ring-value {
+  fill: none;
+  stroke-width: 3.5;
+}
+.mode-loader-ring-track {
+  stroke: #e0dbd1;
+}
+.mode-loader-ring-value {
+  stroke: #1b1f1d;
+  stroke-linecap: round;
+  stroke-dasharray: 176;
+  transition: stroke-dashoffset 0.1s ease-out;
 }

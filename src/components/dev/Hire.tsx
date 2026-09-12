@@ -3,8 +3,9 @@ import { ArrowUpRight, Briefcase, PartyPopper, Puzzle } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { site } from "@/data/site";
+import { useContactSheet } from "@/hooks/useContactSheet";
 import { useI18n } from "@/hooks/useI18n";
-import { formatCzk, mailto } from "@/lib/utils";
+import { formatCzk } from "@/lib/utils";
 
 const OPTIONS = [
   { id: "contract", icon: Briefcase },
@@ -14,6 +15,7 @@ const OPTIONS = [
 
 export function Hire() {
   const { t } = useI18n();
+  const { openSheet } = useContactSheet();
   const b = site.business;
 
   return (
@@ -38,16 +40,17 @@ export function Hire() {
           <p className="text-base font-bold">{t("hire.rate", { rate: formatCzk(site.hourlyRateCzk) })}</p>
           <p className="mt-1 text-xs text-muted">{t("hire.rate.note")}</p>
           <p className="mt-3 text-xs text-muted">
-            {t("pricing.invoice.ico")} {b.ico} · {t("pricing.invoice.dic")} {b.dic} · {b.street}, {b.city}
+            {t("pricing.invoice.ico")} {b.ico} · {t("pricing.invoice.dic")} {b.dic}
           </p>
         </div>
-        <a
-          href={mailto(site.email, t("contact.subject.dev"))}
+        <button
+          type="button"
+          onClick={openSheet}
           className="rainbow-border inline-flex h-11 shrink-0 items-center gap-2 rounded-theme bg-card px-5 font-semibold transition-colors hover:bg-accent hover:text-accent-fg"
         >
           {t("hire.cta")}
           <ArrowUpRight size={16} />
-        </a>
+        </button>
       </Reveal>
     </Section>
   );

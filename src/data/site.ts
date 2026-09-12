@@ -5,7 +5,8 @@
 
 export const site = {
   name: "Veronika Gabrielová",
-  email: "gabrielova.veronika@gmail.com",
+  /** Short brand shown on the studio (business) face of the site */
+  brand: "Veronika",
   linkedin: "https://www.linkedin.com/in/veronika-gabrielova/",
   github: "https://github.com/lspdv",
   location: "Praha / remote",
@@ -17,17 +18,10 @@ export const site = {
   hourlyRateCzk: 1200,
   vatRatePct: 21,
 
-  /** Registry data (ARES, 2018-09-12, active VAT payer) */
+  /** Registry data (ARES, 2018-09-12, active VAT payer). Address is public in ARES — not shown on the site. */
   business: {
-    legalName: "Veronika Gabrielová",
     ico: "07456484",
     dic: "CZ9256082528",
-    street: "Březinova 534/23",
-    district: "Karlín",
-    city: "186 00 Praha 8",
-    country: "Česká republika",
-    /** CZ-NACE 620 — IT programming, consultancy */
-    nace: "62.0",
   },
 } as const;
 
@@ -146,25 +140,48 @@ export const experience: ExperienceItem[] = [
     period: "2017 – 2018",
     roleKey: "exp.msd.role",
     descKey: "exp.msd.desc",
-    stack: ["React", "TypeScript", "Intranet", "Code academy"],
+    stack: ["React", "TypeScript", "Intranet"],
   },
+];
+
+/** Mentoring, community & teaching — shown as a second timeline under Experience. */
+export const volunteering: ExperienceItem[] = [
   {
     id: "reactgirls",
     company: "ReactGirls",
     url: "https://reactgirls.com",
     period: "2020 – 2023",
-    roleKey: "exp.reactgirls.role",
-    descKey: "exp.reactgirls.desc",
+    roleKey: "vol.reactgirls.role",
+    descKey: "vol.reactgirls.desc",
     stack: ["Mentoring", "React", "TypeScript", "DX"],
+    highlight: true,
+  },
+  {
+    id: "msd-js-academy",
+    company: "MSD IT",
+    period: "2017 – 2018",
+    roleKey: "vol.jsAcademy.role",
+    descKey: "vol.jsAcademy.desc",
+    stack: ["JavaScript", "Coaching", "Curriculum", "Community"],
+    highlight: true,
+  },
+  {
+    id: "msd-scratch",
+    company: "MSD IT",
+    period: "2017 – 2018",
+    roleKey: "vol.scratch.role",
+    descKey: "vol.scratch.desc",
+    stack: ["Scratch", "Kids", "Teaching"],
   },
   {
     id: "pyladies",
     company: "PyLadies",
     url: "https://pyladies.cz",
     period: "2016 – 2019",
-    roleKey: "exp.pyladies.role",
-    descKey: "exp.pyladies.desc",
+    roleKey: "vol.pyladies.role",
+    descKey: "vol.pyladies.desc",
     stack: ["Python", "Mentoring", "Community", "Event organizing"],
+    highlight: true,
   },
 ];
 

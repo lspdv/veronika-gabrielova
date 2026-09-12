@@ -4,13 +4,16 @@ import { cn } from "@/lib/utils";
 
 export function DevToggle() {
   const { t } = useI18n();
-  const { isDev, toggle } = useMode();
+  const { isDev, toggle, transitioningTo } = useMode();
+  const busy = transitioningTo !== null;
 
   return (
     <button
       type="button"
       onClick={toggle}
+      disabled={busy}
       aria-pressed={isDev}
+      aria-busy={busy}
       aria-label={isDev ? t("mode.toStudio") : t("mode.toDev")}
       title={isDev ? t("mode.studioHint") : t("mode.devHint")}
       className={cn(
@@ -18,6 +21,7 @@ export function DevToggle() {
         isDev
           ? "rainbow-border bg-card text-fg"
           : "border border-fg/80 bg-fg text-bg hover:bg-accent hover:text-accent-fg hover:border-accent",
+        busy && "cursor-wait opacity-70",
       )}
     >
       {isDev ? (
