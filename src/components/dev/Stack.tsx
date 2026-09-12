@@ -15,7 +15,7 @@ export function Stack() {
       title={t("stack.title")}
       lead={t("stack.lead")}
     >
-      {/* Character stats — soft skills */}
+      {/* Character stats  -  soft skills */}
       <Reveal className="rounded-theme border border-line bg-card p-6 sm:p-8">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h3 className="font-pixel text-sm text-accent sm:text-base">{t("stack.stats.title")}</h3>
@@ -30,7 +30,7 @@ export function Stack() {
         </ul>
       </Reveal>
 
-      {/* Inventory — tech */}
+      {/* Inventory  -  tech */}
       <div className="mt-6">
         <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2 px-1">
           <h3 className="font-pixel text-sm text-accent2 sm:text-base">{t("stack.inventory.title")}</h3>

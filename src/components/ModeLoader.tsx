@@ -31,7 +31,7 @@ function ModeLoaderScreen({ target }: { target: Mode }) {
 
     const tick = (now: number) => {
       const p = Math.min(1, (now - start) / duration);
-      // Ease out cubic — hangs a bit near the end like a real loader.
+      // Ease out cubic  -  hangs a bit near the end like a real loader.
       const eased = 1 - (1 - p) ** 3;
       setProgress(Math.round(eased * 100));
       setStep(Math.min(3, Math.floor(eased * 4)));

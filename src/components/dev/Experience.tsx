@@ -39,7 +39,7 @@ function Timeline({ items }: { items: ExperienceItem[] }) {
                 ) : (
                   item.company
                 )}
-                <span className="text-muted"> — {t(item.roleKey)}</span>
+                <span className="text-muted"> · {t(item.roleKey)}</span>
               </h3>
               <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted">{t(item.descKey)}</p>
               <ul className="mt-3 flex flex-wrap gap-1.5">

@@ -22,7 +22,7 @@ type ModeContextValue = {
   toggle: () => void;
   /** target mode while the loading overlay is up; null when idle */
   transitioningTo: Mode | null;
-  /** increments on every switch — remounts the overlay */
+  /** increments on every switch  -  remounts the overlay */
   switchCount: number;
 };
 

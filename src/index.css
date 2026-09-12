@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Studio (default) — warm cream, deep green & terracotta */
+    /* Studio (default)  -  warm cream, deep green & terracotta */
     --bg: #f7f3ec;
     --fg: #1b1f1d;
     --muted: #66706a;
@@ -21,7 +21,7 @@
   }
 
   :root[data-mode="dev"] {
-    /* DEV — retro navy, neon accents, mono type */
+    /* DEV  -  retro navy, neon accents, mono type */
     --bg: #0b1d3a;
     --fg: #eef3ff;
     --muted: #9fb0d0;

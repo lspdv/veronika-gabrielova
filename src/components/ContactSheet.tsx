@@ -1,9 +1,24 @@
 import { Loader2, X } from "lucide-react";
-import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 
 import { useContactSheet } from "@/hooks/useContactSheet";
 import { useI18n } from "@/hooks/useI18n";
 import { useMode } from "@/hooks/useMode";
+import {
+  FORM_LIMITS,
+  MIN_FILL_MS,
+  isRateLimited,
+  recordSubmit,
+  validateContactForm,
+  type FieldErrors,
+} from "@/lib/contactForm";
 import { cn } from "@/lib/utils";
 
 const FORM_NAME = "contact";
@@ -21,16 +36,24 @@ export function ContactSheet() {
   const { isDev } = useMode();
   const { open, closeSheet } = useContactSheet();
   const titleId = useId();
+  const errorId = useId();
   const firstFieldRef = useRef<HTMLInputElement>(null);
+  const openedAtRef = useRef(0);
   const [status, setStatus] = useState<Status>("idle");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [botField, setBotField] = useState("");
+  const [errors, setErrors] = useState<FieldErrors>({});
 
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    openedAtRef.current = Date.now();
+    setStatus("idle");
+    setErrors({});
+    setBotField("");
     const tid = window.setTimeout(() => firstFieldRef.current?.focus(), 40);
     return () => {
       document.body.style.overflow = prev;
@@ -38,34 +61,66 @@ export function ContactSheet() {
     };
   }, [open]);
 
-  useEffect(() => {
-    if (!open) setStatus("idle");
-  }, [open]);
-
   if (!open) return null;
+
+  const clearFieldError = (key: keyof FieldErrors) => {
+    if (errors[key]) setErrors((prev) => ({ ...prev, [key]: undefined }));
+  };
+
+  const fakeSuccess = () => {
+    setStatus("ok");
+    setName("");
+    setEmail("");
+    setMessage("");
+    setBotField("");
+    setErrors({});
+  };
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === "sending") return;
+
+    const result = validateContactForm({ name, email, message, botField }, t);
+    if (!result.ok) {
+      if (result.silent) {
+        fakeSuccess();
+        return;
+      }
+      setErrors(result.errors);
+      setStatus("idle");
+      const first =
+        (result.errors.name && "contact-name") ||
+        (result.errors.email && "contact-email") ||
+        (result.errors.message && "contact-message");
+      if (first) document.getElementById(first)?.focus();
+      return;
+    }
+
+    // Too fast after opening, or too many sends → treat as bot / abuse, pretend OK.
+    if (Date.now() - openedAtRef.current < MIN_FILL_MS || isRateLimited()) {
+      fakeSuccess();
+      return;
+    }
+
     setStatus("sending");
+    setErrors({});
     try {
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": FORM_NAME,
-          name: name.trim(),
-          email: email.trim(),
-          message: message.trim(),
+          "bot-field": botField,
+          name: result.values.name,
+          email: result.values.email,
+          message: result.values.message,
           mode: isDev ? "dev" : "studio",
           language: document.documentElement.lang || "cs",
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
-      setStatus("ok");
-      setName("");
-      setEmail("");
-      setMessage("");
+      recordSubmit();
+      fakeSuccess();
     } catch {
       setStatus("error");
     }
@@ -73,7 +128,6 @@ export function ContactSheet() {
 
   return (
     <div className="fixed inset-0 z-[80] flex items-end justify-center sm:items-center sm:p-6" role="presentation">
-      {/* Backdrop — intentionally does NOT close the sheet */}
       <div className="absolute inset-0 bg-fg/45 backdrop-blur-[2px]" aria-hidden="true" />
 
       <div
@@ -131,15 +185,25 @@ export function ContactSheet() {
               noValidate
             >
               <input type="hidden" name="form-name" value={FORM_NAME} />
-              <p className="hidden" aria-hidden="true">
+              {/* Honeypot: hidden from humans, filled by naive bots */}
+              <p className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
                 <label>
-                  Don’t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                  Don’t fill this out:{" "}
+                  <input
+                    name="bot-field"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={botField}
+                    onChange={(e) => setBotField(e.target.value)}
+                  />
                 </label>
               </p>
 
               <Field
                 label={t("form.name")}
                 htmlFor="contact-name"
+                error={errors.name}
+                errorId={`${errorId}-name`}
               >
                 <input
                   ref={firstFieldRef}
@@ -147,36 +211,66 @@ export function ContactSheet() {
                   name="name"
                   type="text"
                   required
+                  maxLength={FORM_LIMITS.name}
                   autoComplete="name"
+                  autoCapitalize="words"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className={fieldClass(isDev)}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    clearFieldError("name");
+                  }}
+                  aria-invalid={errors.name ? true : undefined}
+                  aria-describedby={errors.name ? `${errorId}-name` : undefined}
+                  className={fieldClass(isDev, !!errors.name)}
                 />
               </Field>
 
-              <Field label={t("form.email")} htmlFor="contact-email">
+              <Field
+                label={t("form.email")}
+                htmlFor="contact-email"
+                error={errors.email}
+                errorId={`${errorId}-email`}
+              >
                 <input
                   id="contact-email"
                   name="email"
                   type="email"
                   required
+                  maxLength={FORM_LIMITS.email}
                   autoComplete="email"
                   inputMode="email"
+                  spellCheck={false}
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className={fieldClass(isDev)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    clearFieldError("email");
+                  }}
+                  aria-invalid={errors.email ? true : undefined}
+                  aria-describedby={errors.email ? `${errorId}-email` : undefined}
+                  className={fieldClass(isDev, !!errors.email)}
                 />
               </Field>
 
-              <Field label={t("form.message")} htmlFor="contact-message">
+              <Field
+                label={t("form.message")}
+                htmlFor="contact-message"
+                error={errors.message}
+                errorId={`${errorId}-message`}
+              >
                 <textarea
                   id="contact-message"
                   name="message"
                   required
                   rows={5}
+                  maxLength={FORM_LIMITS.message}
                   value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className={cn(fieldClass(isDev), "resize-y min-h-[7.5rem]")}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    clearFieldError("message");
+                  }}
+                  aria-invalid={errors.message ? true : undefined}
+                  aria-describedby={errors.message ? `${errorId}-message` : undefined}
+                  className={cn(fieldClass(isDev, !!errors.message), "min-h-[7.5rem] resize-y")}
                 />
               </Field>
 
@@ -214,23 +308,35 @@ export function ContactSheet() {
 function Field({
   label,
   htmlFor,
+  error,
+  errorId,
   children,
 }: {
   label: string;
   htmlFor: string;
+  error?: string;
+  errorId?: string;
   children: ReactNode;
 }) {
   return (
-    <label htmlFor={htmlFor} className="flex flex-col gap-1.5 text-sm">
-      <span className="font-medium text-muted">{label}</span>
+    <div className="flex flex-col gap-1.5 text-sm">
+      <label htmlFor={htmlFor} className="font-medium text-muted">
+        {label}
+      </label>
       {children}
-    </label>
+      {error && (
+        <p id={errorId} className="text-[13px] text-accent2" role="alert">
+          {error}
+        </p>
+      )}
+    </div>
   );
 }
 
-function fieldClass(isDev: boolean) {
+function fieldClass(isDev: boolean, invalid: boolean) {
   return cn(
-    "w-full rounded-xl border border-line bg-card px-3.5 py-3 text-base text-fg outline-none transition-colors placeholder:text-muted/60 focus:border-accent",
+    "w-full rounded-xl border bg-card px-3.5 py-3 text-base text-fg outline-none transition-colors placeholder:text-muted/60 focus:border-accent",
+    invalid ? "border-accent2" : "border-line",
     isDev && "rounded-theme font-mono text-sm",
   );
 }

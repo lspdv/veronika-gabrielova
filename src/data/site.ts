@@ -1,12 +1,11 @@
 /**
- * Single place for facts about Veronika — edit here, not in components.
+ * Single place for facts about Veronika  -  edit here, not in components.
  * All visible copy lives in ./translations.ts.
  */
 
 export const site = {
   name: "Veronika Gabrielová",
   linkedin: "https://www.linkedin.com/in/veronika-gabrielova/",
-  github: "https://github.com/lspdv",
   location: "Praha / remote",
 
   /** First frontend job (MSD, Jan 2017). Years of experience are derived from this every Jan 1. */
@@ -16,7 +15,7 @@ export const site = {
   hourlyRateCzk: 1200,
   vatRatePct: 21,
 
-  /** Registry data (ARES, 2018-09-12, active VAT payer). Address is public in ARES — not shown on the site. */
+  /** Registry data (ARES, 2018-09-12, active VAT payer). Address is public in ARES  -  not shown on the site. */
   business: {
     ico: "07456484",
     dic: "CZ9256082528",
@@ -142,7 +141,7 @@ export const experience: ExperienceItem[] = [
   },
 ];
 
-/** Mentoring, community & teaching — shown as a second timeline under Experience. */
+/** Mentoring, community & teaching  -  shown as a second timeline under Experience. */
 export const volunteering: ExperienceItem[] = [
   {
     id: "reactgirls",

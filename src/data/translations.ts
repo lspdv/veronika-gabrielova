@@ -10,14 +10,16 @@ type Dict = Record<string, Record<Language, string>>;
  */
 export const translations: Dict = {
   /* ---------- meta ---------- */
+  "brand.studio.soft": { cs: "prostě", en: "just" },
+  "brand.studio.name": { cs: "Veronika", en: "Veronika" },
   "brand.studio": { cs: "prostě Veronika", en: "just Veronika" },
   "meta.title.studio": {
-    cs: "prostě Veronika — weby, portfolia, záchrana CMS",
-    en: "just Veronika — websites, portfolios, CMS rescue",
+    cs: "prostě Veronika · weby, portfolia, záchrana CMS",
+    en: "just Veronika · websites, portfolios, CMS rescue",
   },
   "meta.title.dev": {
-    cs: "Veronika Gabrielová — frontend / product developer",
-    en: "Veronika Gabrielová — frontend / product developer",
+    cs: "Veronika Gabrielová · frontend / product developer",
+    en: "Veronika Gabrielová · frontend / product developer",
   },
 
   /* ---------- header ---------- */
@@ -68,14 +70,15 @@ export const translations: Dict = {
     cs: "Vývojářka · Praha / remote",
     en: "Developer · Prague / remote",
   },
+  "studio.hero.available": { cs: "k dispozici", en: "available" },
   "studio.hero.title.1": {
     cs: "Weby, které k vám sedí.",
     en: "Websites that feel like you.",
   },
   "studio.hero.title.2": { cs: "…a fungují.", en: "…and they work." },
   "studio.hero.lead": {
-    cs: "Jsem Veronika. Přes {years} let stavím rozhraní pro SaaS firmy — a stejnou péči dávám webům pro lidi, kteří chtějí mít online něco, za co se nemusí stydět. Nový web, portfolio, záchrana rozbitého CMS nebo převod vašeho Lovable prototypu do reality.",
-    en: "I'm Veronika. I've spent {years}-plus years building interfaces for SaaS companies — and I bring the same care to websites for people who want something online they're proud of. A new site, a portfolio, a rescue of a broken CMS, or turning your Lovable prototype into the real thing.",
+    cs: "Jsem Veronika. Přes {years} let stavím rozhraní pro SaaS firmy. Stejnou péči dávám webům pro lidi, kteří chtějí mít online něco, za co se nemusí stydět. Nový web, portfolio, záchrana rozbitého CMS nebo převod vašeho Lovable prototypu do reality.",
+    en: "I'm Veronika. I've spent {years}-plus years building interfaces for SaaS companies. I bring the same care to websites for people who want something online they're proud of. A new site, a portfolio, a rescue of a broken CMS, or turning your Lovable prototype into the real thing.",
   },
   "studio.hero.cta.primary": { cs: "Napište mi", en: "Get in touch" },
   "studio.hero.cta.secondary": { cs: "Podívat se na ukázky", en: "See the work" },
@@ -89,8 +92,8 @@ export const translations: Dict = {
   "services.eyebrow": { cs: "Co pro vás udělám", en: "What I do" },
   "services.title": { cs: "Od nápadu po funkční web.", en: "From idea to a working website." },
   "services.lead": {
-    cs: "Nepotřebujete agenturu. Potřebujete někoho, kdo to prostě udělá — pořádně, rychle a tak, aby vám to pak sloužilo.",
-    en: "You don't need an agency. You need someone who just gets it done — properly, quickly, and in a way that keeps serving you.",
+    cs: "Nepotřebujete agenturu. Potřebujete někoho, kdo to prostě udělá. Pořádně, rychle a tak, aby vám to pak sloužilo.",
+    en: "You don't need an agency. You need someone who just gets it done. Properly, quickly, and in a way that keeps serving you.",
   },
   "services.new.title": { cs: "Nový web nebo portfolio", en: "New website or portfolio" },
   "services.new.desc": {
@@ -99,8 +102,8 @@ export const translations: Dict = {
   },
   "services.cms.title": { cs: "Záchrana existujícího CMS", en: "Rescue for your existing CMS" },
   "services.cms.desc": {
-    cs: "Máte web na WordPressu, Webflow, Wixu, Shopify nebo Squarespace a nevíte si s ním rady? Opravím, přestavím, zrychlím, naučím vás ho ovládat — nebo ho přesunu tam, kde vám nebude překážet.",
-    en: "Got a site on WordPress, Webflow, Wix, Shopify or Squarespace that fights you back? I fix, rebuild, speed up, teach you to run it — or move it somewhere that gets out of your way.",
+    cs: "Máte web na WordPressu, Webflow, Wixu, Shopify nebo Squarespace a nevíte si s ním rady? Opravím, přestavím, zrychlím, naučím vás ho ovládat nebo ho přesunu tam, kde vám nebude překážet.",
+    en: "Got a site on WordPress, Webflow, Wix, Shopify or Squarespace that fights you back? I fix, rebuild, speed up, teach you to run it or move it somewhere that gets out of your way.",
   },
   "services.lovable.title": { cs: "Lovable dreams → realita", en: "Lovable dreams → reality" },
   "services.lovable.desc": {
@@ -110,7 +113,7 @@ export const translations: Dict = {
   "services.care.title": { cs: "Dlouhodobá péče", en: "Ongoing care" },
   "services.care.desc": {
     cs: "Drobné úpravy, nové sekce, sezónní změny, konzultace. Účtuji po hodinách, žádné paušály, které nevyužijete.",
-    en: "Small tweaks, new sections, seasonal changes, consulting. Billed hourly — no retainers you won't use.",
+    en: "Small tweaks, new sections, seasonal changes, consulting. Billed hourly, no retainers you won't use.",
   },
   "services.badge.popular": { cs: "Nejčastější", en: "Most popular" },
   "services.new.from": { cs: "Nápad v hlavě", en: "An idea in your head" },
@@ -118,9 +121,12 @@ export const translations: Dict = {
   "services.cms.from": { cs: "CMS, které vás štve", en: "A CMS that fights you" },
   "services.cms.to": { cs: "web, se kterým si víte rady", en: "a site you can actually run" },
   "services.lovable.from": { cs: "Prototyp v Lovable", en: "A Lovable prototype" },
-  "services.lovable.to": { cs: "produkt s doménou", en: "a product with a domain" },
-  "services.care.from": { cs: "Jednorázová oprava", en: "A one-off fix" },
-  "services.care.to": { cs: "někdo, kdo to hlídá", en: "someone who keeps watch" },
+  "services.lovable.to": {
+    cs: "produkt s doménou, za který se neplatí měsíčně",
+    en: "a product with a domain, no monthly fee",
+  },
+  "services.care.from": { cs: "Spuštěno a hotovo", en: "Launched and done" },
+  "services.care.to": { cs: "úpravy, když potřebujete", en: "tweaks when you need them" },
 
   /* ---------- work ---------- */
   "work.eyebrow": { cs: "Ukázky", en: "Selected work" },
@@ -143,12 +149,12 @@ export const translations: Dict = {
   "work.vladokniz.title": { cs: "Vlado Kníž", en: "Vlado Kníž" },
   "work.vladokniz.desc": {
     cs: "Fotografické portfolio se skrytým mini-CMS: fotograf si sám spravuje sekce, texty i fotky bez WordPressu.",
-    en: "A photography portfolio with a hidden mini-CMS: the photographer manages sections, copy and photos himself — no WordPress.",
+    en: "A photography portfolio with a hidden mini-CMS: the photographer manages sections, copy and photos himself, no WordPress.",
   },
   "work.barborasika.title": { cs: "Bára Sika", en: "Bára Sika" },
   "work.barborasika.desc": {
-    cs: "Teaser stránka během rekonstrukce webu — video, kontakt a dvojjazyčný přepínač. Malá věc udělaná pořádně.",
-    en: "A teaser page while the full site is being rebuilt — video, contact and a bilingual switch. A small thing done properly.",
+    cs: "Teaser stránka během rekonstrukce webu, video, kontakt a dvojjazyčný přepínač. Malá věc udělaná pořádně.",
+    en: "A teaser page while the full site is being rebuilt, video, contact and a bilingual switch. A small thing done properly.",
   },
   "work.tag.business": { cs: "Firemní web", en: "Business site" },
   "work.tag.portfolio": { cs: "Portfolio", en: "Portfolio" },
@@ -178,8 +184,8 @@ export const translations: Dict = {
   },
   "process.4.title": { cs: "Předání", en: "Handover" },
   "process.4.desc": {
-    cs: "Doména, hosting, analytika, návod. Web je váš — včetně kódu. A když budete chtít, zůstanu po ruce.",
-    en: "Domain, hosting, analytics, a how-to. The site is yours — code included. And if you want, I stay around.",
+    cs: "Doména, hosting, analytika, návod. Web je váš, včetně kódu. A když budete chtít, zůstanu po ruce.",
+    en: "Domain, hosting, analytics, a how-to. The site is yours, code included. And if you want, I stay around.",
   },
 
   /* ---------- pricing ---------- */
@@ -203,8 +209,8 @@ export const translations: Dict = {
   },
   "pricing.invoice.title": { cs: "Fakturuji na IČO", en: "I invoice as a sole trader" },
   "pricing.invoice.desc": {
-    cs: "Podnikám jako OSVČ zapsaná v živnostenském rejstříku. Žádná smlouva na zkoušku, žádné zaměstnání — dostanete fakturu s náležitostmi podle českého zákona o DPH.",
-    en: "I operate as a registered Czech sole trader. No trial contracts, no employment — you get a proper invoice compliant with Czech VAT law.",
+    cs: "Podnikám jako OSVČ zapsaná v živnostenském rejstříku. Žádná smlouva na zkoušku, žádné zaměstnání. Dostanete fakturu s náležitostmi podle českého zákona o DPH.",
+    en: "I operate as a registered Czech sole trader. No trial contracts, no employment. You get a proper invoice compliant with Czech VAT law.",
   },
   "pricing.invoice.ico": { cs: "IČO", en: "Company ID (IČO)" },
   "pricing.invoice.dic": { cs: "DIČ", en: "VAT ID (DIČ)" },
@@ -215,12 +221,11 @@ export const translations: Dict = {
   "contact.eyebrow": { cs: "Kontakt", en: "Contact" },
   "contact.title": { cs: "Napište mi, co potřebujete.", en: "Tell me what you need." },
   "contact.lead": {
-    cs: "Odpovídám do dvou pracovních dnů. Klidně jen v bodech — zbytek doladíme na hovoru.",
-    en: "I reply within two working days. Bullet points are fine — we'll sort the rest on a call.",
+    cs: "Odpovídám do dvou pracovních dnů. Pište v bodech. Zbytek doladíme na hovoru.",
+    en: "I reply within two working days. Write in bullet points. We'll sort the rest on a call.",
   },
   "contact.cta": { cs: "Napište mi", en: "Get in touch" },
   "contact.linkedin": { cs: "LinkedIn", en: "LinkedIn" },
-  "contact.github": { cs: "GitHub", en: "GitHub" },
 
   /* ---------- contact form sheet ---------- */
   "form.eyebrow": { cs: "Zpráva", en: "Message" },
@@ -235,7 +240,23 @@ export const translations: Dict = {
     cs: "Nepodařilo se odeslat. Zkuste to prosím znovu.",
     en: "Couldn't send. Please try again.",
   },
-  "form.success.title": { cs: "Díky, mám to.", en: "Thanks — got it." },
+  "form.error.name.required": { cs: "Napište prosím jméno.", en: "Please enter your name." },
+  "form.error.name.tooLong": { cs: "Jméno je příliš dlouhé.", en: "Name is too long." },
+  "form.error.email.required": { cs: "Napište prosím e-mail.", en: "Please enter your email." },
+  "form.error.email.invalid": {
+    cs: "To nevypadá jako platný e-mail.",
+    en: "That doesn't look like a valid email.",
+  },
+  "form.error.message.required": { cs: "Napište prosím zprávu.", en: "Please write a message." },
+  "form.error.message.tooLong": {
+    cs: "Zpráva je příliš dlouhá (max. 4000 znaků).",
+    en: "Message is too long (max 4000 characters).",
+  },
+  "form.error.suspicious": {
+    cs: "Zpráva nesmí obsahovat HTML ani skripty.",
+    en: "Please don't include HTML or scripts.",
+  },
+  "form.success.title": { cs: "Díky, mám to.", en: "Thanks, got it." },
   "form.success.lead": {
     cs: "Ozvu se do dvou pracovních dnů.",
     en: "I'll get back to you within two working days.",
@@ -259,8 +280,8 @@ export const translations: Dict = {
     en: "I build SaaS interfaces people don't want to click away from.",
   },
   "dev.hero.lead": {
-    cs: "{years}+ let v produktových týmech — od pre-seed startupu, kde jsem byla jediný frontend, po scale-up s tisíci zákazníky. React, TypeScript, design systémy, rozšíření do Chromu a MS Teams. A vedle toho člověk, díky kterému má váš Slack víc než čtyři emoji.",
-    en: "{years}+ years in product teams — from a pre-seed startup where I was the entire frontend, to a scale-up with thousands of customers. React, TypeScript, design systems, Chrome and MS Teams extensions. Also the person who makes sure your Slack has more than four emoji.",
+    cs: "{years}+ let v produktových týmech: od pre-seed startupu, kde jsem byla jediný frontend, po scale-up s tisíci zákazníky. React, TypeScript, design systémy, rozšíření do Chromu a MS Teams. A vedle toho člověk, díky kterému má váš Slack víc než čtyři emoji.",
+    en: "{years}+ years in product teams: from a pre-seed startup where I was the entire frontend, to a scale-up with thousands of customers. React, TypeScript, design systems, Chrome and MS Teams extensions. Also the person who makes sure your Slack has more than four emoji.",
   },
   "dev.hero.cta.primary": { cs: "Pojďme si zavolat", en: "Let's talk" },
   "dev.hero.cta.secondary": { cs: "LinkedIn", en: "LinkedIn" },
@@ -339,7 +360,7 @@ export const translations: Dict = {
   "exp.title": { cs: "Zkušenosti ze SaaS.", en: "SaaS track record." },
   "exp.lead": {
     cs: "Ne jen „frontend“. Produktová vývojářka, která rozumí, proč se feature dělá, a umí říct, když se dělat nemá.",
-    en: "Not just “frontend”. A product developer who understands why a feature exists — and says so when it shouldn't.",
+    en: "Not just “frontend”. A product developer who understands why a feature exists and says so when it shouldn't.",
   },
   "exp.backbone.role": { cs: "Product Developer", en: "Product Developer" },
   "exp.backbone.desc": {
@@ -348,13 +369,13 @@ export const translations: Dict = {
   },
   "exp.aimful.role": { cs: "Product Developer · jediný frontend", en: "Product Developer · sole frontend" },
   "exp.aimful.desc": {
-    cs: "Pre-seed startup pro lepší meetingy nad Google Kalendářem. Celý frontend webové appky, MS Teams aplikace a rozšíření do Chromu — včetně schvalovacích procesů pro Chrome Store a Teams katalog. Design, product discovery, marketing, několik pivotů.",
-    en: "Pre-seed startup for better meetings on top of Google Calendar. Entire frontend of the web app, MS Teams app and Chrome extension — including the Chrome Store and Teams catalogue approval processes. Design, product discovery, marketing, several pivots.",
+    cs: "Pre-seed startup pro lepší meetingy nad Google Kalendářem. Celý frontend webové appky, MS Teams aplikace a rozšíření do Chromu, včetně schvalovacích procesů pro Chrome Store a Teams katalog. Design, product discovery, marketing, několik pivotů.",
+    en: "Pre-seed startup for better meetings on top of Google Calendar. Entire frontend of the web app, MS Teams app and Chrome extension, including the Chrome Store and Teams catalogue approval processes. Design, product discovery, marketing, several pivots.",
   },
   "exp.productboardEm.role": { cs: "Engineering Manager", en: "Engineering Manager" },
   "exp.productboardEm.desc": {
     cs: "Vedení týmu, nábor, onboarding, zlepšování zákaznické podpory. Naučila jsem se, že kultura se nedělá na all-hands, ale v denních drobnostech.",
-    en: "Team leadership, hiring, onboarding, improving customer support. Learned that culture isn't made at all-hands — it's made in daily small things.",
+    en: "Team leadership, hiring, onboarding, improving customer support. Learned that culture isn't made at all-hands. It's made in daily small things.",
   },
   "exp.productboardDev.role": { cs: "Product Developer", en: "Product Developer" },
   "exp.productboardDev.desc": {
@@ -368,16 +389,16 @@ export const translations: Dict = {
   },
   "exp.msd.role": { cs: "Front-end Developer", en: "Front-end Developer" },
   "exp.msd.desc": {
-    cs: "Firemní intranet v Reactu a TypeScriptu — první full-time frontend role a skok z nemocnice do IT.",
-    en: "Company-wide intranet in React and TypeScript — first full-time frontend role and the leap from nursing into IT.",
+    cs: "Firemní intranet v Reactu a TypeScriptu: první full-time frontend role a skok z nemocnice do IT.",
+    en: "Company-wide intranet in React and TypeScript: first full-time frontend role and the leap from nursing into IT.",
   },
 
   /* ---------- volunteering ---------- */
   "vol.eyebrow": { cs: "git log --grep=volunteer", en: "git log --grep=volunteer" },
   "vol.title": { cs: "Dobrovolnictví & mentoring.", en: "Volunteering & mentoring." },
   "vol.lead": {
-    cs: "Učím lidi kódovat od roku 2016 — ženy vstupující do techu, kolegy v MSD i děti ve Scratchi. Komunita je můj způsob, jak dělat tech.",
-    en: "I've been teaching people to code since 2016 — women entering tech, colleagues at MSD, and kids in Scratch. Community is my way of doing tech.",
+    cs: "Učím lidi kódovat od roku 2016: ženy vstupující do techu, kolegy v MSD i děti ve Scratchi. Komunita je můj způsob, jak dělat tech.",
+    en: "I've been teaching people to code since 2016: women entering tech, colleagues at MSD, and kids in Scratch. Community is my way of doing tech.",
   },
   "vol.reactgirls.role": { cs: "Mentorka", en: "Mentor" },
   "vol.reactgirls.desc": {
@@ -386,18 +407,18 @@ export const translations: Dict = {
   },
   "vol.jsAcademy.role": { cs: "Lead coach & organizátorka JS Academy", en: "Lead coach & organizer, JS Academy" },
   "vol.jsAcademy.desc": {
-    cs: "Vedla a organizovala interní JavaScript code academy v MSD IT — kurikulum, koučování kolegů a celý běh kurzu. Tam jsem zjistila, že učit lidi je moje superschopnost.",
-    en: "Led and organized the internal JavaScript code academy at MSD IT — curriculum, coaching colleagues and running the whole course. This is where I found out teaching people is my superpower.",
+    cs: "Vedla a organizovala interní JavaScript code academy v MSD IT, kurikulum, koučování kolegů a celý běh kurzu. Tam jsem zjistila, že učit lidi je moje superschopnost.",
+    en: "Led and organized the internal JavaScript code academy at MSD IT, curriculum, coaching colleagues and running the whole course. This is where I found out teaching people is my superpower.",
   },
-  "vol.scratch.role": { cs: "Lektorka — kódování pro děti", en: "Instructor — coding for kids" },
+  "vol.scratch.role": { cs: "Lektorka · kódování pro děti", en: "Instructor · coding for kids" },
   "vol.scratch.desc": {
-    cs: "Učila jsem děti programovat ve Scratchi v rámci MSD — první smyčky, podmínky a kreativita místo strachu z „kódu“.",
-    en: "Taught kids to code in Scratch at MSD — first loops, conditionals and creativity instead of fear of “code”.",
+    cs: "Učila jsem děti programovat ve Scratchi v rámci MSD: první smyčky, podmínky a kreativita místo strachu z „kódu“.",
+    en: "Taught kids to code in Scratch at MSD: first loops, conditionals and creativity instead of fear of “code”.",
   },
   "vol.pyladies.role": { cs: "Mentorka & organizátorka", en: "Mentor & organizer" },
   "vol.pyladies.desc": {
-    cs: "Komunita, která učí ženy programovat v Pythonu. Mentorovala jsem na kurzech a pomáhala organizovat srazy a workshopy — tady jsem zjistila, že komunita je můj způsob, jak dělat tech.",
-    en: "A community teaching women to code in Python. I mentored on courses and helped organize meetups and workshops — this is where I learned that community is my way of doing tech.",
+    cs: "Komunita, která učí ženy programovat v Pythonu. Mentorovala jsem na kurzech a pomáhala organizovat srazy a workshopy. Tady jsem zjistila, že komunita je můj způsob, jak dělat tech.",
+    en: "A community teaching women to code in Python. I mentored on courses and helped organize meetups and workshops. This is where I learned that community is my way of doing tech.",
   },
   "exp.origin": {
     cs: "Z nemocnice do globálního SaaS. Ano, ta zdravotní sestra z článku na CzechCrunch.",
@@ -433,8 +454,8 @@ export const translations: Dict = {
   },
   "soft.translate.name": { cs: "Překlad produkt ⇄ dev", en: "Product ⇄ dev translation" },
   "soft.translate.desc": {
-    cs: "Stejnou feature vysvětlím designérovi, backendu i CEO — každému v jeho jazyce.",
-    en: "I explain the same feature to design, backend and the CEO — each in their own language.",
+    cs: "Stejnou feature vysvětlím designérovi, backendu i CEO, každému v jeho jazyce.",
+    en: "I explain the same feature to design, backend and the CEO, each in their own language.",
   },
   "soft.learn.name": { cs: "Učení za pochodu", en: "Learning on the fly" },
   "soft.learn.desc": {
@@ -463,8 +484,8 @@ export const translations: Dict = {
   },
   "soft.calm.name": { cs: "Klid při incidentu", en: "Calm during incidents" },
   "soft.calm.desc": {
-    cs: "Bývalá zdravotní sestra. Spadlý deploy není krvácení — dá se to vyřešit v klidu a popořadě.",
-    en: "Former nurse. A broken deploy isn't a haemorrhage — it can be fixed calmly, one step at a time.",
+    cs: "Bývalá zdravotní sestra. Spadlý deploy není krvácení. Dá se to vyřešit v klidu a popořadě.",
+    en: "Former nurse. A broken deploy isn't a haemorrhage. It can be fixed calmly, one step at a time.",
   },
 
   /* ---------- dev: culture ---------- */
@@ -481,8 +502,8 @@ export const translations: Dict = {
   },
   "culture.point.2.title": { cs: "Onboarding, který neodradí", en: "Onboarding that doesn't scare people" },
   "culture.point.2.desc": {
-    cs: "Jako EM jsem postavila onboarding od nuly. Nováček má první PR v produkci do týdne — a ví, koho se zeptat.",
-    en: "As an EM I built onboarding from scratch. New hires ship their first PR within a week — and know who to ask.",
+    cs: "Jako EM jsem postavila onboarding od nuly. Nováček má první PRs v produkci ten samý týden a ví, koho se zeptat.",
+    en: "As an EM I built onboarding from scratch. New hires ship their first PRs to production the same week and know who to ask.",
   },
   "culture.point.3.title": { cs: "Komunita & mentoring", en: "Community & mentoring" },
   "culture.point.3.desc": {
@@ -513,7 +534,7 @@ export const translations: Dict = {
   "hire.culture.title": { cs: "Culture boost", en: "Culture boost" },
   "hire.culture.desc": {
     cs: "Onboarding program, mentoring juniorů, interní code academy, nebo jen 200 slackmoji za odpoledne. Vážně.",
-    en: "Onboarding program, junior mentoring, internal code academy — or just 200 slackmoji in an afternoon. Seriously.",
+    en: "Onboarding program, junior mentoring, internal code academy or just 200 slackmoji in an afternoon. Seriously.",
   },
   "hire.rate": { cs: "Sazba: {rate} Kč / hod bez DPH", en: "Rate: CZK {rate} / hour excl. VAT" },
   "hire.rate.note": { cs: "Dlouhodobé kontrakty individuálně.", en: "Long-term contracts priced individually." },

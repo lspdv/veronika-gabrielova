@@ -2,6 +2,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { DevToggle } from "@/components/DevToggle";
+import { BrandLogo } from "@/components/BrandLogo";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useI18n } from "@/hooks/useI18n";
 import { useMode } from "@/hooks/useMode";
@@ -53,8 +54,8 @@ export function Header() {
         <a
           href="#top"
           className={cn(
-            "whitespace-nowrap font-display text-lg font-semibold tracking-tight",
-            isDev && "font-mono text-base",
+            "whitespace-nowrap",
+            isDev && "font-mono text-base font-semibold tracking-tight",
           )}
         >
           {isDev ? (
@@ -63,7 +64,7 @@ export function Header() {
               <span className="text-accent">$</span>
             </span>
           ) : (
-            <span>{t("brand.studio")}</span>
+            <BrandLogo />
           )}
         </a>
 

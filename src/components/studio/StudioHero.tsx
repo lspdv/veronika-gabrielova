@@ -1,6 +1,7 @@
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
+import { BrandLogo } from "@/components/BrandLogo";
 import { site } from "@/data/site";
 import { useContactSheet } from "@/hooks/useContactSheet";
 import { useI18n } from "@/hooks/useI18n";
@@ -16,9 +17,18 @@ export function StudioHero() {
       <div className="container-x grid items-end gap-12 lg:grid-cols-[1.25fr_0.75fr]">
         <div>
           <Reveal>
-            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-card/70 px-3 py-1 text-xs font-medium text-muted">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-              {t("studio.hero.eyebrow")}
+            <p className="mb-6 inline-flex flex-wrap items-center gap-x-2.5 gap-y-1 rounded-full border border-line bg-card/70 px-3 py-1 text-xs font-medium text-muted">
+              <span className="inline-flex items-center gap-1.5 text-fg">
+                <span className="relative inline-flex h-2 w-2 shrink-0">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-[#3d9a6a] opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3d9a6a]" />
+                </span>
+                {t("studio.hero.available")}
+              </span>
+              <span className="text-line" aria-hidden="true">
+                ·
+              </span>
+              <span>{t("studio.hero.eyebrow")}</span>
             </p>
           </Reveal>
           <Reveal delay={60}>
@@ -89,8 +99,8 @@ export function StudioHero() {
             </div>
             <div className="mt-6 border-t border-line pt-5">
               <div className="text-sm">
-                <p className="font-semibold">{t("brand.studio")}</p>
-                <p className="text-muted">{site.location}</p>
+                <BrandLogo size="card" />
+                <p className="mt-1 text-sm text-muted">{site.location}</p>
               </div>
             </div>
           </div>

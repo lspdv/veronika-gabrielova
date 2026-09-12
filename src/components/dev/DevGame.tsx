@@ -55,7 +55,7 @@ const MAX_SPEED = 540;
 const SPEED_PER_POINT = 7;
 const FRAME_MS = 350;
 
-/** The legacy HTML she has to dodge. Code, not copy — intentionally untranslated. */
+/** The legacy HTML she has to dodge. Code, not copy  -  intentionally untranslated. */
 const TAGS = [
   "<table>",
   "<marquee>",

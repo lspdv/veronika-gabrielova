@@ -1,7 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
-import type { ReactNode } from "react";
 
-import { GithubIcon, LinkedinIcon } from "@/components/BrandIcons";
+import { LinkedinIcon } from "@/components/BrandIcons";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { site } from "@/data/site";
@@ -22,12 +21,7 @@ export function Contact() {
       title={t("contact.title")}
       lead={t("contact.lead")}
     >
-      <Reveal
-        className={cn(
-          "flex flex-col gap-6 rounded-[1.75rem] border border-line bg-card p-7 shadow-soft sm:flex-row sm:items-center sm:justify-between sm:p-10",
-          isDev && "rounded-theme shadow-none",
-        )}
-      >
+      <Reveal className="flex flex-wrap items-center gap-3">
         <button
           type="button"
           onClick={openSheet}
@@ -38,36 +32,17 @@ export function Contact() {
         >
           {t("contact.cta")}
         </button>
-        <ul className="flex flex-wrap gap-2 sm:justify-end">
-          <ContactLink href={site.linkedin} icon={<LinkedinIcon size={16} />} label={t("contact.linkedin")} />
-          <ContactLink href={site.github} icon={<GithubIcon size={16} />} label={t("contact.github")} />
-        </ul>
+        <a
+          href={site.linkedin}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-11 items-center gap-2 rounded-full border border-line px-4 text-sm font-medium transition-colors hover:border-fg"
+        >
+          <LinkedinIcon size={16} />
+          {t("contact.linkedin")}
+          <ArrowUpRight size={14} className="opacity-60" />
+        </a>
       </Reveal>
     </Section>
-  );
-}
-
-function ContactLink({
-  href,
-  icon,
-  label,
-}: {
-  href: string;
-  icon: ReactNode;
-  label: string;
-}) {
-  return (
-    <li>
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className="inline-flex h-11 items-center gap-2 rounded-full border border-line px-4 text-sm font-medium transition-colors hover:border-fg"
-      >
-        {icon}
-        {label}
-        <ArrowUpRight size={14} className="opacity-60" />
-      </a>
-    </li>
   );
 }

@@ -1,6 +1,6 @@
 # veronika-gabrielova
 
-Personal site of Veronika Gabrielová — two faces, one page:
+Personal site of Veronika Gabrielová  -  two faces, one page:
 
 - **Studio** (default): websites, portfolios, CMS rescue, Lovable → production. For people & brands.
 - **`< DEV />`** (toggle top-right, or `?dev=1`): SaaS track record, hard skills, culture & slackmoji. For companies & tech teams.

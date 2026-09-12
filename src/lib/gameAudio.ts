@@ -1,6 +1,6 @@
 /**
  * Tiny chiptune engine for the easter-egg game. Everything is synthesised
- * with the Web Audio API — no audio assets. Must be started from a user
+ * with the Web Audio API  -  no audio assets. Must be started from a user
  * gesture (browsers block AudioContext otherwise).
  */
 export type GameAudio = {
