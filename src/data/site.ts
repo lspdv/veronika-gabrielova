@@ -154,6 +154,34 @@ export const experience: ExperienceItem[] = [
     descKey: "exp.reactgirls.desc",
     stack: ["Mentoring", "React", "TypeScript", "DX"],
   },
+  {
+    id: "pyladies",
+    company: "PyLadies",
+    url: "https://pyladies.cz",
+    period: "2016 – 2019",
+    roleKey: "exp.pyladies.role",
+    descKey: "exp.pyladies.desc",
+    stack: ["Python", "Mentoring", "Community", "Event organizing"],
+  },
+];
+
+export type SoftSkill = {
+  /** translation key prefix: `${key}.name`, `${key}.desc` */
+  key: string;
+  /** 0–100, rendered as a pixel stat bar */
+  level: number;
+  emoji: string;
+};
+
+export const softSkills: SoftSkill[] = [
+  { key: "soft.vibe", level: 99, emoji: "🦜" },
+  { key: "soft.translate", level: 95, emoji: "🔁" },
+  { key: "soft.learn", level: 93, emoji: "🧠" },
+  { key: "soft.mentor", level: 92, emoji: "🌱" },
+  { key: "soft.product", level: 90, emoji: "🧭" },
+  { key: "soft.no", level: 88, emoji: "🙅‍♀️" },
+  { key: "soft.async", level: 87, emoji: "✍️" },
+  { key: "soft.calm", level: 85, emoji: "🧊" },
 ];
 
 export type SkillGroup = { titleKey: string; items: string[] };
@@ -168,10 +196,11 @@ export const skills: SkillGroup[] = [
       "Vite",
       "Tailwind",
       "CSS / Sass",
-      "GraphQL",
-      "REST",
+      "REST APIs",
       "React Query",
       "Testing Library",
+      "Accessibility",
+      "i18n",
     ],
   },
   {
@@ -183,8 +212,7 @@ export const skills: SkillGroup[] = [
       "Feature flags",
       "Analytics",
       "A/B tests",
-      "Accessibility",
-      "i18n",
+      "Store approvals (Chrome, Teams)",
     ],
   },
   {
@@ -193,21 +221,11 @@ export const skills: SkillGroup[] = [
       "Chrome extensions",
       "MS Teams apps",
       "Google Calendar API",
-      "Netlify",
+      "Netlify + Functions",
+      "PostgreSQL / SQL",
       "AWS (S3, Lambda, EC2)",
       "GitHub Actions",
       "WordPress / Webflow / Wix / Shopify",
-    ],
-  },
-  {
-    titleKey: "stack.people",
-    items: [
-      "Engineering management",
-      "Onboarding",
-      "Mentoring",
-      "Code academy coaching",
-      "Community events",
-      "Slackmoji curation",
     ],
   },
 ];

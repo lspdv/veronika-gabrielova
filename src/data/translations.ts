@@ -26,7 +26,7 @@ export const translations: Dict = {
   "nav.pricing": { cs: "Cena", en: "Pricing" },
   "nav.contact": { cs: "Kontakt", en: "Contact" },
   "nav.experience": { cs: "Zkušenosti", en: "Experience" },
-  "nav.stack": { cs: "Stack", en: "Stack" },
+  "nav.stack": { cs: "Skills", en: "Skills" },
   "nav.culture": { cs: "Kultura", en: "Culture" },
   "nav.hire": { cs: "Spolupráce", en: "Hire" },
   "nav.menu": { cs: "Menu", en: "Menu" },
@@ -274,19 +274,78 @@ export const translations: Dict = {
     cs: "6+ týdenní mentoringy pro ženy vstupující do techu: React, TypeScript, DX, procesy, týmová práce a kariérní směr.",
     en: "6+ week mentorships for women entering tech: React, TypeScript, DX, processes, teamwork and career direction.",
   },
+  "exp.pyladies.role": { cs: "Mentorka & organizátorka", en: "Mentor & organizer" },
+  "exp.pyladies.desc": {
+    cs: "Komunita, která učí ženy programovat v Pythonu. Mentorovala jsem na kurzech a pomáhala organizovat srazy a workshopy — tady jsem zjistila, že komunita je můj způsob, jak dělat tech.",
+    en: "A community teaching women to code in Python. I mentored on courses and helped organize meetups and workshops — this is where I learned that community is my way of doing tech.",
+  },
   "exp.origin": {
-    cs: "Začátek: Czechitas & PyLadies. Předtím zdravotní sestra. Ano, ta z článku na CzechCrunch.",
-    en: "Origin story: Czechitas & PyLadies. Nurse before that. Yes, the one from the CzechCrunch article.",
+    cs: "Z nemocnice do globálního SaaS. Ano, ta zdravotní sestra z článku na CzechCrunch.",
+    en: "From a hospital to a global SaaS. Yes, the nurse from the CzechCrunch article.",
   },
   "exp.origin.link": { cs: "Přečíst článek", en: "Read the article" },
 
   /* ---------- dev: stack ---------- */
-  "stack.eyebrow": { cs: "cat skills.json", en: "cat skills.json" },
-  "stack.title": { cs: "Hard skills. Bez buzzwordů, které neumím.", en: "Hard skills. No buzzwords I can't back up." },
+  "stack.eyebrow": { cs: "cat character-sheet.json", en: "cat character-sheet.json" },
+  "stack.title": {
+    cs: "Soft skills jsou hlavní stat. Tech je inventář.",
+    en: "Soft skills are the main stat. Tech is the inventory.",
+  },
+  "stack.lead": {
+    cs: "Frameworky se dají doučit za víkend. To, jak se s vámi pracuje, ne. Tak nejdřív to, na čem záleží.",
+    en: "Frameworks can be picked up over a weekend. How it feels to work with you can't. So first, the stuff that matters.",
+  },
+  "stack.stats.title": { cs: "Character stats", en: "Character stats" },
+  "stack.stats.hint": { cs: "max 100 · sebehodnocení, ale férové", en: "max 100 · self-assessed, but fair" },
+  "stack.inventory.title": { cs: "Inventář", en: "Inventory" },
+  "stack.inventory.hint": {
+    cs: "Věci, které umím vzít do ruky a hned s nimi něco udělat.",
+    en: "Things I can pick up and do something useful with right away.",
+  },
   "stack.frontend": { cs: "Frontend", en: "Frontend" },
   "stack.product": { cs: "Produkt & design", en: "Product & design" },
-  "stack.platforms": { cs: "Platformy & infra", en: "Platforms & infra" },
-  "stack.people": { cs: "Lidi & týmy", en: "People & teams" },
+  "stack.platforms": { cs: "Platformy, data & infra", en: "Platforms, data & infra" },
+
+  "soft.vibe.name": { cs: "Team vibe engineering", en: "Team vibe engineering" },
+  "soft.vibe.desc": {
+    cs: "Slackmoji, #kudos, výlety, onboarding buddy. Kultura je feature a já ji shipuju.",
+    en: "Slackmoji, #kudos, field trips, onboarding buddies. Culture is a feature and I ship it.",
+  },
+  "soft.translate.name": { cs: "Překlad produkt ⇄ dev", en: "Product ⇄ dev translation" },
+  "soft.translate.desc": {
+    cs: "Stejnou feature vysvětlím designérovi, backendu i CEO — každému v jeho jazyce.",
+    en: "I explain the same feature to design, backend and the CEO — each in their own language.",
+  },
+  "soft.learn.name": { cs: "Učení za pochodu", en: "Learning on the fly" },
+  "soft.learn.desc": {
+    cs: "Nová doména, nový store approval proces, nový framework. Do týdne se v tom orientuju.",
+    en: "New domain, new store approval process, new framework. Within a week I know my way around.",
+  },
+  "soft.mentor.name": { cs: "Mentoring & onboarding", en: "Mentoring & onboarding" },
+  "soft.mentor.desc": {
+    cs: "Nováček má první PR v produkci do týdne a ví, koho se zeptat. ReactGirls, PyLadies, MSD academy.",
+    en: "New hires ship their first PR within a week and know who to ask. ReactGirls, PyLadies, MSD academy.",
+  },
+  "soft.product.name": { cs: "Product thinking", en: "Product thinking" },
+  "soft.product.desc": {
+    cs: "Ptám se „proč“ dřív než „jak“. Několik pivotů v pre-seed startupu mě to naučilo rychle.",
+    en: "I ask “why” before “how”. A few pivots in a pre-seed startup taught me that fast.",
+  },
+  "soft.no.name": { cs: "Říkání „ne“ s úsměvem", en: "Saying “no” with a smile" },
+  "soft.no.desc": {
+    cs: "Když se feature dělat nemá, řeknu to. Slušně, s daty a s alternativou.",
+    en: "When a feature shouldn't be built, I say so. Politely, with data, and with an alternative.",
+  },
+  "soft.async.name": { cs: "Async komunikace", en: "Async communication" },
+  "soft.async.desc": {
+    cs: "PR popisy, které se dají číst. Loom místo meetingu. Dokumentace, kterou někdo najde.",
+    en: "PR descriptions people actually read. A Loom instead of a meeting. Docs someone can find.",
+  },
+  "soft.calm.name": { cs: "Klid při incidentu", en: "Calm during incidents" },
+  "soft.calm.desc": {
+    cs: "Bývalá zdravotní sestra. Spadlý deploy není krvácení — dá se to vyřešit v klidu a popořadě.",
+    en: "Former nurse. A broken deploy isn't a haemorrhage — it can be fixed calmly, one step at a time.",
+  },
 
   /* ---------- dev: culture ---------- */
   "culture.eyebrow": { cs: "#random", en: "#random" },
@@ -307,8 +366,8 @@ export const translations: Dict = {
   },
   "culture.point.3.title": { cs: "Komunita & mentoring", en: "Community & mentoring" },
   "culture.point.3.desc": {
-    cs: "ReactGirls, Czechitas, JS academy v MSD. Učím lidi kódovat od roku 2017 a nepřestala jsem.",
-    en: "ReactGirls, Czechitas, JS academy at MSD. I've been teaching people to code since 2017 and haven't stopped.",
+    cs: "PyLadies, ReactGirls, JS academy v MSD. Učím lidi kódovat od roku 2016 a nepřestala jsem.",
+    en: "PyLadies, ReactGirls, JS academy at MSD. I've been teaching people to code since 2016 and haven't stopped.",
   },
   "culture.point.4.title": { cs: "Expati & výlety", en: "Expats & field trips" },
   "culture.point.4.desc": {
