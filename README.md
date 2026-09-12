@@ -29,4 +29,4 @@ npm run lint    # oxlint
 | Portfolio items + screenshots | `src/data/site.ts` → `work`, images in `public/work/` |
 | Experience timeline, skills, slackmoji | `src/data/site.ts` |
 | Theme colours per mode | `src/index.css` (`:root` / `:root[data-mode="dev"]`) |
-| Nyan cat sprite | `src/components/NyanCat.tsx` |
+| Pixel Veronika sprite + code trail | `src/components/PixelDev.tsx` |

@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { NyanCat } from "@/components/NyanCat";
+import { PixelDev } from "@/components/PixelDev";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
 import { useI18n } from "@/hooks/useI18n";
@@ -38,8 +38,8 @@ export function DevHero() {
       <div className="container-x">
         <Reveal>
           <div className="mb-8 -ml-5 sm:ml-0">
-            <NyanCat scale={4} className="sm:hidden" />
-            <NyanCat scale={6} className="hidden sm:flex" />
+            <PixelDev scale={4} className="sm:hidden" />
+            <PixelDev scale={6} className="hidden sm:flex" />
           </div>
         </Reveal>
 
