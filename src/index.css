@@ -4,19 +4,19 @@
 
 @layer base {
   :root {
-    /* Studio (default) — warm, editorial, honey & cream */
-    --bg: #fbf7f0;
-    --fg: #1d1915;
-    --muted: #6f665c;
-    --line: #e6ddd0;
-    --card: #ffffff;
-    --accent: #f2a900;
-    --accent-fg: #1d1915;
-    --accent-2: #ff6b4a;
+    /* Studio (default) — warm cream, deep green & terracotta */
+    --bg: #f7f3ec;
+    --fg: #1b1f1d;
+    --muted: #66706a;
+    --line: #e0dbd1;
+    --card: #fffdf9;
+    --accent: #2e6b5a;
+    --accent-fg: #f7f3ec;
+    --accent-2: #c9603f;
     --radius: 1.25rem;
     --font-display: "Fraunces", "Georgia", serif;
     --font-sans: "Inter", system-ui, sans-serif;
-    --selection: #ffe3a3;
+    --selection: #f3d6c8;
     color-scheme: light;
   }
 
@@ -76,8 +76,8 @@
 
   :root[data-mode="studio"] body {
     background:
-      radial-gradient(90% 60% at 80% -10%, rgba(242, 169, 0, 0.16) 0%, transparent 60%),
-      radial-gradient(60% 50% at -10% 30%, rgba(255, 107, 74, 0.1) 0%, transparent 60%),
+      radial-gradient(90% 60% at 80% -10%, rgba(46, 107, 90, 0.12) 0%, transparent 60%),
+      radial-gradient(60% 50% at -10% 30%, rgba(201, 96, 63, 0.1) 0%, transparent 60%),
       var(--bg);
     background-attachment: fixed;
   }

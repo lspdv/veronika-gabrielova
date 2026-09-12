@@ -1,4 +1,4 @@
-import { ArrowUpRight, BadgeCheck, FileText, Receipt } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
@@ -49,22 +49,22 @@ export function Pricing() {
 
         <div className="grid gap-4">
           <Reveal delay={80} className="rounded-[1.75rem] border border-line bg-card p-7 shadow-soft">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-bg ring-1 ring-line">
-                <BadgeCheck size={18} />
+            <h3 className="font-display text-xl font-semibold">
+              <span className="mr-2 text-accent2" aria-hidden="true">
+                ✓
               </span>
-              <h3 className="font-display text-xl font-semibold">{t("pricing.vat.title")}</h3>
-            </div>
+              {t("pricing.vat.title")}
+            </h3>
             <p className="mt-4 text-[15px] leading-relaxed text-muted">{t("pricing.vat.desc", { vat })}</p>
           </Reveal>
 
           <Reveal delay={140} className="rounded-[1.75rem] border border-line bg-card p-7 shadow-soft">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-bg ring-1 ring-line">
-                <Receipt size={18} />
+            <h3 className="font-display text-xl font-semibold">
+              <span className="mr-2 text-accent2" aria-hidden="true">
+                ✓
               </span>
-              <h3 className="font-display text-xl font-semibold">{t("pricing.invoice.title")}</h3>
-            </div>
+              {t("pricing.invoice.title")}
+            </h3>
             <p className="mt-4 text-[15px] leading-relaxed text-muted">{t("pricing.invoice.desc")}</p>
             <dl className="mt-5 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 border-t border-line pt-5 text-sm">
               <dt className="text-muted">{t("pricing.invoice.ico")}</dt>
@@ -86,7 +86,6 @@ export function Pricing() {
               rel="noreferrer"
               className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium underline-offset-4 hover:underline"
             >
-              <FileText size={14} />
               {t("pricing.invoice.registry")}
               <ArrowUpRight size={14} />
             </a>

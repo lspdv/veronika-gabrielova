@@ -92,6 +92,14 @@ export const translations: Dict = {
     en: "Small tweaks, new sections, seasonal changes, consulting. Billed hourly — no retainers you won't use.",
   },
   "services.badge.popular": { cs: "Nejčastější", en: "Most popular" },
+  "services.new.from": { cs: "Nápad v hlavě", en: "An idea in your head" },
+  "services.new.to": { cs: "web, který žije", en: "a website that's live" },
+  "services.cms.from": { cs: "CMS, které vás štve", en: "A CMS that fights you" },
+  "services.cms.to": { cs: "web, který posloucháte vy", en: "a site that listens to you" },
+  "services.lovable.from": { cs: "Prototyp v Lovable", en: "A Lovable prototype" },
+  "services.lovable.to": { cs: "produkt s doménou", en: "a product with a domain" },
+  "services.care.from": { cs: "Jednorázová oprava", en: "A one-off fix" },
+  "services.care.to": { cs: "někdo, kdo to hlídá", en: "someone who keeps watch" },
 
   /* ---------- work ---------- */
   "work.eyebrow": { cs: "Ukázky", en: "Selected work" },

@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
@@ -58,10 +58,11 @@ export function StudioHero() {
 
         <Reveal delay={200} className="relative">
           <div className="relative rounded-[2rem] border border-line bg-card p-6 shadow-soft">
-            <div className="absolute -right-4 -top-4 flex h-14 w-14 rotate-6 items-center justify-center rounded-2xl bg-accent text-accent-fg shadow-soft">
-              <Sparkles size={22} />
-            </div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              <span className="relative inline-flex h-2 w-2">
+                <span className="absolute inset-0 animate-ping rounded-full bg-accent opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
               {t("studio.hero.card.label")}
             </p>
             <p className="mt-3 font-display text-2xl font-semibold leading-tight">

@@ -59,7 +59,7 @@ export function ModeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.dataset.mode = mode;
     const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-    if (meta) meta.content = mode === "dev" ? "#0b1d3a" : "#fbf7f0";
+    if (meta) meta.content = mode === "dev" ? "#0b1d3a" : "#f7f3ec";
     const url = new URL(window.location.href);
     if (mode === "dev") url.searchParams.set("dev", "1");
     else url.searchParams.delete("dev");
