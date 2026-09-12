@@ -1,0 +1,328 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Studio (default) — warm, editorial, honey & cream */
+    --bg: #fbf7f0;
+    --fg: #1d1915;
+    --muted: #6f665c;
+    --line: #e6ddd0;
+    --card: #ffffff;
+    --accent: #f2a900;
+    --accent-fg: #1d1915;
+    --accent-2: #ff6b4a;
+    --radius: 1.25rem;
+    --font-display: "Fraunces", "Georgia", serif;
+    --font-sans: "Inter", system-ui, sans-serif;
+    --selection: #ffe3a3;
+    color-scheme: light;
+  }
+
+  :root[data-mode="dev"] {
+    /* DEV — nyan-cat navy, rainbow accents, mono type */
+    --bg: #0b1d3a;
+    --fg: #eef3ff;
+    --muted: #9fb0d0;
+    --line: #23375f;
+    --card: #10254a;
+    --accent: #ff66c4;
+    --accent-fg: #0b1d3a;
+    --accent-2: #4dd2ff;
+    --radius: 0.375rem;
+    --font-display: "JetBrains Mono", ui-monospace, monospace;
+    --font-sans: "JetBrains Mono", ui-monospace, monospace;
+    --selection: #ff66c4;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition:
+      background-color 0.5s ease,
+      color 0.5s ease;
+  }
+
+  ::selection {
+    background: var(--selection);
+    color: var(--fg);
+  }
+
+  :root[data-mode="studio"] body {
+    background:
+      radial-gradient(90% 60% at 80% -10%, rgba(242, 169, 0, 0.16) 0%, transparent 60%),
+      radial-gradient(60% 50% at -10% 30%, rgba(255, 107, 74, 0.1) 0%, transparent 60%),
+      var(--bg);
+    background-attachment: fixed;
+  }
+
+  :root[data-mode="dev"] body {
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(1.5px 1.5px at 20px 30px, rgba(255, 255, 255, 0.55) 60%, transparent 61%),
+      radial-gradient(1.5px 1.5px at 120px 90px, rgba(255, 255, 255, 0.4) 60%, transparent 61%),
+      radial-gradient(1.5px 1.5px at 210px 160px, rgba(223, 233, 255, 0.5) 60%, transparent 61%),
+      radial-gradient(1.5px 1.5px at 300px 40px, rgba(255, 255, 255, 0.35) 60%, transparent 61%),
+      radial-gradient(1.5px 1.5px at 380px 210px, rgba(255, 255, 255, 0.5) 60%, transparent 61%),
+      radial-gradient(1.5px 1.5px at 70px 200px, rgba(223, 233, 255, 0.4) 60%, transparent 61%);
+    background-size: 420px 260px;
+    animation: starfield 40s linear infinite;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .rainbow-text {
+    background: linear-gradient(
+      90deg,
+      #ff3b3b,
+      #ff9d1c,
+      #ffe63b,
+      #4ff05a,
+      #3ba1ff,
+      #a765ff,
+      #ff3b3b
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow-slide 6s linear infinite;
+  }
+
+  .rainbow-border {
+    position: relative;
+  }
+  .rainbow-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(90deg, #ff3b3b, #ff9d1c, #ffe63b, #4ff05a, #3ba1ff, #a765ff);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+    shape-rendering: crispEdges;
+  }
+}
+
+/* --- Reveal on scroll --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Nyan --- */
+@keyframes starfield {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -420px 0;
+  }
+}
+
+@keyframes rainbow-slide {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes nyan-bob {
+  0%,
+  49.9% {
+    transform: translateY(0);
+  }
+  50%,
+  100% {
+    transform: translateY(var(--px, 4px));
+  }
+}
+
+@keyframes nyan-wave-a {
+  0%,
+  49.9% {
+    transform: translateY(0);
+  }
+  50%,
+  100% {
+    transform: translateY(var(--px, 4px));
+  }
+}
+@keyframes nyan-wave-b {
+  0%,
+  49.9% {
+    transform: translateY(var(--px, 4px));
+  }
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.nyan-seg-a {
+  animation: nyan-wave-a 0.7s steps(1) infinite;
+}
+.nyan-seg-b {
+  animation: nyan-wave-b 0.7s steps(1) infinite;
+}
+.nyan-cat {
+  animation: nyan-bob 0.7s steps(1) infinite;
+}
+
+/* --- Slackmoji animations --- */
+@keyframes emoji-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes emoji-shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-14deg);
+  }
+  75% {
+    transform: rotate(14deg);
+  }
+}
+@keyframes emoji-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes emoji-party {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    transform: scale(1);
+  }
+}
+@keyframes emoji-melt {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.8) translateY(3px);
+  }
+}
+.emoji-bounce {
+  animation: emoji-bounce 0.9s ease-in-out infinite;
+}
+.emoji-shake {
+  animation: emoji-shake 0.6s ease-in-out infinite;
+}
+.emoji-spin {
+  animation: emoji-spin 1.6s linear infinite;
+}
+.emoji-party {
+  animation: emoji-party 1.2s linear infinite;
+}
+.emoji-melt {
+  animation: emoji-melt 1.4s ease-in-out infinite;
+}
+
+/* --- Terminal cursor --- */
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.cursor-blink::after {
+  content: "▋";
+  margin-left: 2px;
+  animation: blink 1s steps(1) infinite;
+  color: var(--accent);
+}
+
+/* --- Mode flash --- */
+@keyframes mode-flash {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.mode-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background: linear-gradient(90deg, #ff3b3b, #ff9d1c, #ffe63b, #4ff05a, #3ba1ff, #a765ff);
+  animation: mode-flash 0.6s ease-out forwards;
+}
