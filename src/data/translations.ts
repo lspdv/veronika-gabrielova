@@ -68,8 +68,11 @@ export const translations: Dict = {
     cs: "Vývojářka · Praha / remote",
     en: "Developer · Prague / remote",
   },
-  "studio.hero.title.1": { cs: "Weby, které vypadají jako vy.", en: "Websites that look like you." },
-  "studio.hero.title.2": { cs: "— a fungují.", en: "— and they work." },
+  "studio.hero.title.1": {
+    cs: "Weby, které k vám sedí.",
+    en: "Websites that feel like you.",
+  },
+  "studio.hero.title.2": { cs: "…a fungují.", en: "…and they work." },
   "studio.hero.lead": {
     cs: "Jsem Veronika. Přes {years} let stavím rozhraní pro SaaS firmy — a stejnou péči dávám webům pro lidi, kteří chtějí mít online něco, za co se nemusí stydět. Nový web, portfolio, záchrana rozbitého CMS nebo převod vašeho Lovable prototypu do reality.",
     en: "I'm Veronika. I've spent {years}-plus years building interfaces for SaaS companies — and I bring the same care to websites for people who want something online they're proud of. A new site, a portfolio, a rescue of a broken CMS, or turning your Lovable prototype into the real thing.",
